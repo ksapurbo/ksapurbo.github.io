@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Your Name — Economics</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #11111a;
+    --surface2: #18182a;
+    --border: rgba(255,255,255,0.07);
+    --border-hover: rgba(255,255,255,0.15);
+    --text: #e8e8f0;
+    --muted: #7a7a99;
+    --accent: #c8a96e;
+    --accent2: #7b9cda;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 4rem;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--muted);
+    transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 57px; left: 0; right: 0;
+    background: rgba(10,10,15,0.97);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    z-index: 99;
+    padding: 1.5rem 2rem 2rem;
+    flex-direction: column;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .hero-grid-overlay {
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200,169,110,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,169,110,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+  }
+  .hero-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-label::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+  .hero-name-first {
+    display: block;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.05em;
+  }
+  .hero-name-last {
+    display: block;
+    font-size: clamp(4rem, 8vw, 7rem);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .hero-title {
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 54ch;
+    line-height: 1.85;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+  .btn-primary {
+    padding: 0.75rem 2rem;
+    background: var(--accent);
+    color: #0a0a0f;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+  .btn-secondary {
+    padding: 0.75rem 2rem;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--border-hover);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { color: var(--text); border-color: var(--text); }
+
+  /* ── SCROLL INDICATOR ── */
+  .hero-scroll {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-scroll span {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--border-hover);
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--accent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0% { left: -100%; }
+    50% { left: 0%; }
+    100% { left: 100%; }
+  }
+
+  /* ── SECTIONS COMMON ── */
+  section {
+    padding: 6rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border);
+  }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 3.5rem;
+    max-width: 55ch;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-photo-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-photo-placeholder {
+    font-family: var(--serif);
+    font-size: 4rem;
+    color: rgba(200,169,110,0.15);
+    user-select: none;
+  }
+  .about-photo-hint {
+    position: absolute;
+    bottom: 1rem;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .about-photo-corner {
+    position: absolute;
+    width: 20px; height: 20px;
+    border-color: var(--accent);
+    border-style: solid;
+    opacity: 0.4;
+  }
+  .tl { top: 12px; left: 12px; border-width: 1px 0 0 1px; }
+  .tr { top: 12px; right: 12px; border-width: 1px 1px 0 0; }
+  .bl { bottom: 12px; left: 12px; border-width: 0 0 1px 1px; }
+  .br { bottom: 12px; right: 12px; border-width: 0 1px 1px 0; }
+
+  .about-lead {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+  .about-body {
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+  }
+  .about-interests {
+    margin-top: 1.75rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border);
+  }
+  .about-interests-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .interest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .interest-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 4px 12px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .interest-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+  }
+  .skill-group {
+    background: var(--bg);
+    padding: 2rem 2.5rem;
+    transition: background 0.25s;
+  }
+  .skill-group:hover { background: var(--surface); }
+  .skill-group-icon {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .skill-group-icon::before {
+    content: '';
+    display: block;
+    width: 6px; height: 6px;
+    background: var(--accent);
+    opacity: 0.6;
+  }
+  .skill-group-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 1.25rem;
+    color: var(--text);
+  }
+  .skill-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .skill-name {
+    font-size: 0.875rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .skill-bar-wrap {
+    flex: 1;
+    height: 2px;
+    background: var(--surface2);
+    position: relative;
+    overflow: hidden;
+  }
+  .skill-bar {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    background: var(--accent);
+    opacity: 0.7;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+  .edu-timeline::before {
+    content: '';
+    position: absolute;
+    top: 8px; left: 0;
+    width: 1px;
+    height: calc(100% - 8px);
+    background: var(--border);
+  }
+  .edu-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 1.5rem;
+  }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 8px;
+    width: 7px; height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 0.8;
+  }
+  .edu-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  .edu-school {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  .edu-detail {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 60ch;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5px;
+    background: var(--border);
+  }
+  .project-item {
+    background: var(--bg);
+    padding: 2.25rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 2rem;
+    transition: background 0.25s;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+  }
+  .project-item:hover { background: var(--surface); }
+  .project-item:hover::before { transform: scaleY(1); }
+
+  .project-type {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+  .project-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 0.65rem;
+  }
+  .project-desc {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    max-width: 65ch;
+  }
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    border: 1px solid rgba(123,156,218,0.2);
+    padding: 3px 10px;
+  }
+  .project-arrow {
+    font-family: var(--mono);
+    font-size: 18px;
+    color: var(--border-hover);
+    transition: color 0.2s, transform 0.2s;
+    margin-top: 0.25rem;
+  }
+  .project-item:hover .project-arrow { color: var(--accent); transform: translate(3px, -3px); }
+
+  /* ── CONTACT ── */
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .contact-desc {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.85;
+    margin-bottom: 2.5rem;
+  }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .contact-link:last-child { border-bottom: none; }
+  .contact-link:hover { color: var(--text); }
+  .contact-link-icon {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    min-width: 5rem;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .form-group label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .form-group input,
+  .form-group textarea {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 300;
+    padding: 0.85rem 1.1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--accent); }
+  .form-group textarea { min-height: 120px; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer p {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+  .footer-socials {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .footer-socials a {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-socials a:hover { color: var(--accent); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-inner > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-inner > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-inner > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-inner > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-inner > *:nth-child(5) { animation-delay: 0.5s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    #hero { padding: 6rem 1.5rem 3rem; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-photo-frame { max-width: 280px; aspect-ratio: 1/1; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .project-item { grid-template-columns: 1fr; }
+    .project-arrow { display: none; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    footer { flex-direction: column; gap: 1.25rem; text-align: center; padding: 2rem 1.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    nav { padding: 0.9rem 1.25rem; }
+    #hero { padding: 5.5rem 1.25rem 2.5rem; }
+    .hero-name { font-size: clamp(2.2rem, 10vw, 2.8rem); }
+    section { padding: 3rem 1.25rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .skill-group { padding: 1.5rem 1.25rem; }
+    .project-item { padding: 1.75rem 1.25rem; }
+    .btn-primary, .btn-secondary { width: 100%; text-align: center; padding: 1rem 1.5rem; }
+    .hero-cta { flex-direction: column; gap: 0.75rem; }
+    footer { padding: 1.75rem 1.25rem; }
+    .footer-socials { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero-grid-overlay"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">AKS · Economics</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#education" onclick="closeMenu()">Education</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Economics Graduate</div>
+    <h1 class="hero-name">
+      <span class="hero-name-first">Apurbo Krishna</span>
+      <span class="hero-name-last">Saha</span>
+    </h1>
+    <p class="hero-title">M.S. Economics · [Your University] · [Your City]</p>
+    <p class="hero-desc">
+      A curious economist interested in [your field — e.g. development, labour, macro].
+      I combine rigorous quantitative methods with real-world policy questions,
+      and I'm actively looking for research, analyst, or graduate opportunities.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">See My Work</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About</div>
+  <h2 class="section-title">Who I Am</h2>
+  <p class="section-sub">A bit about my background, what drives me, and what I'm looking for.</p>
+
+  <div class="about-grid">
+    <div>
+      <div class="about-photo-frame">
+        <div class="about-photo-placeholder">AKS</div>
+        <div class="about-photo-hint">Replace with your photo</div>
+        <div class="about-photo-corner tl"></div>
+        <div class="about-photo-corner tr"></div>
+        <div class="about-photo-corner bl"></div>
+        <div class="about-photo-corner br"></div>
+      </div>
+    </div>
+    <div>
+      <p class="about-lead">
+        I'm a recently graduated economist with a Masters in Economics
+        from [Your University], passionate about [your area of interest].
+      </p>
+      <p class="about-body">
+        During my Masters, I developed strong foundations in econometric
+        analysis, data-driven research, and economic theory. I enjoy translating
+        complex datasets into clear, actionable insights — whether for academic
+        work or practical policy questions.
+      </p>
+      <p class="about-body">
+        I am currently seeking opportunities in economic research, data analysis,
+        or policy work where I can apply my quantitative skills and grow as
+        a professional economist.
+      </p>
+
+      <div class="about-interests">
+        <div class="about-interests-label">Research Interests</div>
+        <div class="interest-tags">
+          <div class="interest-tag">Development Economics</div>
+          <div class="interest-tag">Labour Markets</div>
+          <div class="interest-tag">Fiscal Policy</div>
+          <div class="interest-tag">South Asian Economies</div>
+          <div class="interest-tag">Causal Inference</div>
+          <div class="interest-tag">Poverty & Inequality</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Skills</div>
+  <h2 class="section-title">What I Bring</h2>
+  <p class="section-sub">Technical tools and analytical methods I've built up through coursework and independent study.</p>
+
+  <div class="skills-grid">
+
+    <div class="skill-group">
+      <div class="skill-group-icon">Statistical Software</div>
+      <div class="skill-group-title">Econometric Tools</div>
+      <div class="skill-items">
+        <div class="skill-item">
+          <span class="skill-name">Stata</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">R</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Python</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Excel / Sheets</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-icon">Quantitative Methods</div>
+      <div class="skill-group-title">Econometrics</div>
+      <div class="skill-items">
+        <div class="skill-item">
+          <span class="skill-name">Regression Analysis</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Panel Data Methods</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Difference-in-Differences</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Time Series</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-icon">Communication</div>
+      <div class="skill-group-title">Presentation & Writing</div>
+      <div class="skill-items">
+        <div class="skill-item">
+          <span class="skill-name">Academic Writing</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Data Visualisation</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Policy Brief Writing</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">LaTeX</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:60%"></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Education</div>
+  <h2 class="section-title">Academic Background</h2>
+  <p class="section-sub">My formal training in economics and related fields.</p>
+
+  <div class="edu-timeline">
+
+    <div class="edu-item">
+      <div class="edu-year">20XX – 20XX</div>
+      <div class="edu-degree">Master of Science in Economics</div>
+      <div class="edu-school">[Your University] · [City, Country]</div>
+      <div class="edu-detail">
+        Focused on econometrics, development economics, and macroeconomic theory.
+        Thesis: <em>"[Your Thesis Title Here]"</em> — supervised by [Supervisor Name].
+        GPA: [X.XX / 4.00] · Relevant courses: Advanced Econometrics, Development Economics,
+        Macroeconomics II, Labour Economics.
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-year">20XX – 20XX</div>
+      <div class="edu-degree">Bachelor of [Science / Arts] in Economics</div>
+      <div class="edu-school">[Your Undergraduate University] · [City, Country]</div>
+      <div class="edu-detail">
+        Graduated with [honours / distinction]. Majored in Economics with a minor in
+        [Statistics / Mathematics / other]. Final year GPA: [X.XX].
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <h2 class="section-title">Academic Work</h2>
+  <p class="section-sub">My thesis and selected coursework projects — the real work behind the degree.</p>
+
+  <div class="projects-list">
+
+    <div class="project-item">
+      <div>
+        <div class="project-type">Masters Thesis · 20XX</div>
+        <div class="project-title">[Your Thesis Title Here]</div>
+        <div class="project-desc">
+          A brief description of your thesis — what question you asked, what data
+          you used, what method you applied, and what you found. Two to three
+          sentences is enough. Be honest and specific.
+        </div>
+        <div class="project-tags">
+          <span class="tag">Stata</span>
+          <span class="tag">[Your Method]</span>
+          <span class="tag">[Topic]</span>
+        </div>
+      </div>
+      <div class="project-arrow">↗</div>
+    </div>
+
+    <div class="project-item">
+      <div>
+        <div class="project-type">Coursework Project · 20XX</div>
+        <div class="project-title">[Project Title — e.g. Replication Study / Policy Analysis]</div>
+        <div class="project-desc">
+          Description of the project — what you replicated or analysed, which dataset
+          you used, and any interesting findings or methodological insights you gained.
+        </div>
+        <div class="project-tags">
+          <span class="tag">R</span>
+          <span class="tag">Panel Data</span>
+          <span class="tag">[Topic]</span>
+        </div>
+      </div>
+      <div class="project-arrow">↗</div>
+    </div>
+
+    <div class="project-item">
+      <div>
+        <div class="project-type">Independent Study · 20XX</div>
+        <div class="project-title">[Another Project or Data Analysis]</div>
+        <div class="project-desc">
+          Even a personal data project — analysing publicly available data on
+          something you care about — belongs here. It shows initiative and
+          practical skill beyond coursework.
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Data Visualisation</span>
+        </div>
+      </div>
+      <div class="project-arrow">↗</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">Let's Connect</h2>
+  <p class="section-sub">Open to research roles, analyst positions, internships, and academic collaborations.</p>
+
+  <div class="contact-inner">
+    <div>
+      <p class="contact-desc">
+        Whether you have a research opportunity, want to discuss economics,
+        or just want to connect — feel free to reach out through any of
+        the channels below. I try to respond within a day or two.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:you@email.com" class="contact-link">
+          <span class="contact-link-icon">Email</span>
+          you@email.com
+        </a>
+        <a href="#" class="contact-link">
+          <span class="contact-link-icon">LinkedIn</span>
+          linkedin.com/in/yourname
+        </a>
+        <a href="#" class="contact-link">
+          <span class="contact-link-icon">GitHub</span>
+          github.com/yourname
+        </a>
+        <a href="#" class="contact-link">
+          <span class="contact-link-icon">CV / Resume</span>
+          Download PDF
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required/>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@organisation.com" required/>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Research opportunity, collaboration, etc."/>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell me about your project or opportunity…" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:fit-content;cursor:pointer;">Send Message</button>
+      <p id="form-feedback" style="font-family:var(--mono);font-size:11px;color:var(--accent);display:none;letter-spacing:0.1em;">
+        ✓ Message sent — I'll be in touch soon.
+      </p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Apurbo Krishna Saha · Economics Graduate</p>
+  <div class="footer-socials">
+    <a href="#">LinkedIn</a>
+    <a href="#">GitHub</a>
+    <a href="#">Email</a>
+    <a href="photography.html" style="color:var(--muted);opacity:0.5;font-style:italic;letter-spacing:0.06em;text-transform:none;transition:opacity 0.2s,color 0.2s;" onmouseover="this.style.opacity='1';this.style.color='var(--accent)'" onmouseout="this.style.opacity='0.5';this.style.color='var(--muted)'">also a photographer ↗</a>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const fb = document.getElementById('form-feedback');
+  fb.style.display = 'block';
+  e.target.reset();
+  setTimeout(() => { fb.style.display = 'none'; }, 5000);
+}
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+</script>
+</body>
+</html>
