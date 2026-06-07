@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Your Name — Economics</title>
+<title>Apurbo Krishna Saha</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -123,10 +123,12 @@
 
   /* ── HERO ── */
   #hero {
+    border-top: none;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
     padding: 8rem 4rem 5rem;
     position: relative;
     overflow: hidden;
@@ -146,7 +148,6 @@
   .hero-inner {
     position: relative;
     z-index: 1;
-    max-width: 700px;
   }
   .hero-label {
     font-family: var(--mono);
@@ -243,6 +244,30 @@
     display: inline-block;
   }
   .btn-secondary:hover { color: var(--text); border-color: var(--text); }
+  .photo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-style: normal;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    align-self: center;
+  }
+  .photo-link .arrow {
+    color: var(--accent);
+    transition: color 0.2s;
+    font-style: normal;
+  }
+  .photo-link:hover,
+  .photo-link:active { color: var(--accent); }
+  .photo-link:hover .arrow,
+  .photo-link:active .arrow { color: var(--accent); }
 
   /* ── SCROLL INDICATOR ── */
   .hero-scroll {
@@ -327,9 +352,13 @@
     gap: 5rem;
     align-items: start;
   }
+  .about-grid > div:first-child {
+    position: sticky;
+    top: 6rem;
+  }
   .about-photo-frame {
-    width: 100%;
-    aspect-ratio: 3/4;
+    width: 90%;
+    aspect-ratio: 1/1;
     background: var(--surface);
     border: 1px solid var(--border);
     position: relative;
@@ -346,14 +375,17 @@
   }
   .about-photo-hint {
     position: absolute;
-    bottom: 1rem;
-    left: 0; right: 0;
-    text-align: center;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    color: var(--muted);
-    text-transform: uppercase;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-photo-hint img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
   }
   .about-photo-corner {
     position: absolute;
@@ -409,77 +441,8 @@
     transition: border-color 0.2s, color 0.2s;
   }
   .interest-tag:hover { border-color: var(--accent); color: var(--accent); }
-
-  /* ── SKILLS ── */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
-    background: var(--border);
-  }
-  .skill-group {
-    background: var(--bg);
-    padding: 2rem 2.5rem;
-    transition: background 0.25s;
-  }
-  .skill-group:hover { background: var(--surface); }
-  .skill-group-icon {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .skill-group-icon::before {
-    content: '';
-    display: block;
-    width: 6px; height: 6px;
-    background: var(--accent);
-    opacity: 0.6;
-  }
-  .skill-group-title {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    font-weight: 400;
-    margin-bottom: 1.25rem;
-    color: var(--text);
-  }
-  .skill-items {
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-  }
-  .skill-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  .skill-name {
-    font-size: 0.875rem;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-  .skill-bar-wrap {
-    flex: 1;
-    height: 2px;
-    background: var(--surface2);
-    position: relative;
-    overflow: hidden;
-  }
-  .skill-bar {
-    position: absolute;
-    top: 0; left: 0;
-    height: 100%;
-    background: var(--accent);
-    opacity: 0.7;
-  }
-
-  /* ── EDUCATION ── */
+ 
+  /* ── EDUCATION (BACKGROUND) ── */
   .edu-timeline {
     position: relative;
     padding-left: 2rem;
@@ -487,7 +450,7 @@
   .edu-timeline::before {
     content: '';
     position: absolute;
-    top: 8px; left: 0;
+    top: 8px; left: 4px;
     width: 1px;
     height: calc(100% - 8px);
     background: var(--border);
@@ -523,6 +486,11 @@
     margin-bottom: 0.25rem;
   }
   .edu-school {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  .edu-location {
     font-size: 0.9rem;
     color: var(--muted);
     margin-bottom: 0.75rem;
@@ -611,7 +579,77 @@
     transition: color 0.2s, transform 0.2s;
     margin-top: 0.25rem;
   }
-  .project-item:hover .project-arrow { color: var(--accent); transform: translate(3px, -3px); }
+  .project-arrow a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s, transform 0.2s;
+  }
+  .project-item:hover .project-arrow,
+  .project-item:hover .project-arrow a { color: var(--accent); transform: translate(3px, -3px); }
+  .abstract-link {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(122,122,153,0.3);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .abstract-link:hover,
+  .abstract-link:active { color: var(--accent); border-color: var(--accent); }
+
+  /* ── SKILLS ── */
+  .skills-clusters {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+  .skill-cluster {
+    padding: 2rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    align-items: start;
+    transition: background 0.2s;
+  }
+  .skill-cluster:last-child { border-bottom: none; }
+  .skill-cluster:hover { background: var(--surface); }
+  .skill-cluster-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 4px;
+    line-height: 1.5;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .skill-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 5px 14px;
+    transition: color 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+  .skill-tag:hover { color: var(--text); border-color: var(--border-hover); }
+  .skill-tag--primary {
+    color: var(--text);
+    border-color: rgba(200,169,110,0.25);
+    background: rgba(200,169,110,0.04);
+  }
+  .skill-tag--primary:hover { border-color: var(--accent); color: var(--accent); }
 
   /* ── CONTACT ── */
   .contact-inner {
@@ -687,6 +725,27 @@
   .form-group textarea { min-height: 120px; }
 
   /* ── FOOTER ── */
+  .back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    transition: color 0.2s, border-color 0.2s, opacity 0.3s;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .back-to-top:hover { color: var(--accent); border-color: rgba(200,169,110,0.4); }
   footer {
     border-top: 1px solid var(--border);
     padding: 2.5rem 4rem;
@@ -717,6 +776,97 @@
   }
   .footer-socials a:hover { color: var(--accent); }
 
+  /* ── HERO ABOUT CARD ── */
+  .hero-card {
+    position: relative;
+    z-index: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    animation: fadeUp 0.7s ease 0.5s both;
+  }
+  .hero-card-header {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .hero-card-header::before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero-card-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-card-item:last-of-type { border-bottom: none; }
+  .hero-card-icon {
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    opacity: 0.6;
+  }
+  .hero-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .hero-card-role {
+    font-family: var(--sans);
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .hero-card-org {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+  .hero-card-status {
+    margin-top: 2rem;
+    padding: 0.85rem 1.25rem;
+    background: rgba(200,169,110,0.06);
+    border: 1px solid rgba(200,169,110,0.15);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background: #5ccea0;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(92,206,160,0.6);
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(92,206,160,0.6); }
+    50% { opacity: 0.5; box-shadow: 0 0 3px rgba(92,206,160,0.2); }
+  }
+  .status-text {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #5ccea0;
+  }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -736,11 +886,13 @@
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
-    #hero { padding: 6rem 1.5rem 3rem; }
+    #hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; gap: 2.5rem; }
+    .hero-card { display: none; }
     section { padding: 4rem 1.5rem; }
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-grid > div:first-child { position: static; }
     .about-photo-frame { max-width: 280px; aspect-ratio: 1/1; }
-    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .skill-cluster { grid-template-columns: 1fr; gap: 1rem; }
     .project-item { grid-template-columns: 1fr; }
     .project-arrow { display: none; }
     .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -752,11 +904,11 @@
     #hero { padding: 5.5rem 1.25rem 2.5rem; }
     .hero-name { font-size: clamp(2.2rem, 10vw, 2.8rem); }
     section { padding: 3rem 1.25rem; }
-    .skills-grid { grid-template-columns: 1fr; }
-    .skill-group { padding: 1.5rem 1.25rem; }
+    .skill-cluster { padding: 1.5rem 1.25rem; }
     .project-item { padding: 1.75rem 1.25rem; }
     .btn-primary, .btn-secondary { width: 100%; text-align: center; padding: 1rem 1.5rem; }
-    .hero-cta { flex-direction: column; gap: 0.75rem; }
+    .hero-cta { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+    .photo-link { margin-top: 0; }
     footer { padding: 1.75rem 1.25rem; }
     .footer-socials { flex-wrap: wrap; justify-content: center; gap: 1rem; }
   }
@@ -768,12 +920,12 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">AKS · Economics</a>
+  <a class="nav-logo" href="#"><img src="images/site-logo-git1.png" alt="Home" height=40px></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#research">Research</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
@@ -783,48 +935,124 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#background" onclick="closeMenu()">Background</a> 
+  <a href="#research" onclick="closeMenu()">Research</a>
   <a href="#skills" onclick="closeMenu()">Skills</a>
-  <a href="#education" onclick="closeMenu()">Education</a>
-  <a href="#projects" onclick="closeMenu()">Projects</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
 
 <!-- HERO -->
-<div id="hero">
+<section id="hero">
   <div class="hero-inner">
-    <div class="hero-label">Economics Graduate</div>
+    <div class="hero-label">Hello, I'm</div>
     <h1 class="hero-name">
       <span class="hero-name-first">Apurbo Krishna</span>
       <span class="hero-name-last">Saha</span>
     </h1>
-    <p class="hero-title">M.S. Economics · [Your University] · [Your City]</p>
+    <p class="hero-title">Economics Graduate · Data Analyst</p>
     <p class="hero-desc">
-      A curious economist interested in [your field — e.g. development, labour, macro].
-      I combine rigorous quantitative methods with real-world policy questions,
-      and I'm actively looking for research, analyst, or graduate opportunities.
+      A curious Economics graduate with a passion for data, empirical and analytical research, and real-world impact.
     </p>
     <div class="hero-cta">
-      <a href="#projects" class="btn-primary">See My Work</a>
+      <a href="https://drive.google.com/file/d/1diiuLyAkPt7ZG363P9_JIy10d-0Fzl5B/view?usp=drive_link" class="btn-primary">View My CV</a>
       <a href="#contact" class="btn-secondary">Get in Touch</a>
+      <a href="photography.html" class="photo-link">Also a Photographer <span class="arrow">↗</span></a>
     </div>
     <div class="hero-scroll">
       <div class="scroll-line"></div>
       <span>Scroll to explore</span>
     </div>
   </div>
-</div>
+
+  <!-- ABOUT CARD -->
+  <div class="hero-card">
+    <div class="hero-card-header">At a Glance</div>
+    
+    <div class="hero-card-item">
+      <span class="hero-card-icon">💼</span>
+      <div class="hero-card-text">
+        <span class="hero-card-role">Research Analyst</span>
+        <span class="hero-card-org">Bangladesh Institute of Development Studies (BIDS)</span>
+      </div>
+    </div>
+   
+    <div class="hero-card-item">
+      <span class="hero-card-icon">🎓</span>
+      <div class="hero-card-text">
+        <span class="hero-card-role">M.S.S. in Economics</span>
+        <span class="hero-card-org">University of Dhaka</span>
+      </div>
+    </div>
+   
+    <div class="hero-card-item">
+      <span class="hero-card-icon">📍</span>
+      <div class="hero-card-text">
+        <span class="hero-card-role">Dhaka</span>
+        <span class="hero-card-org">Bangladesh</span>
+      </div>
+    </div>
+
+<!--
+    <div class="hero-card-item">
+      <span class="hero-card-icon">🎓</span>
+      <div class="hero-card-text">
+        <span class="hero-card-role">M.S. in Economics</span>
+        <span class="hero-card-org">Ruprecht-Karls-Universität Heidelberg</span>
+      </div>
+    </div>
+
+   
+    <div class="hero-card-item">
+      <span class="hero-card-icon">📍</span>
+      <div class="hero-card-text">
+        <span class="hero-card-role">Heidelberg</span>
+        <span class="hero-card-org">Germany</span>
+      </div>
+    </div>
+
+    <div class="hero-card-item">
+      <span class="hero-card-icon">💼</span>
+      <div class="hero-card-text">
+        <span class="hero-card-role">Former Research Analyst</span>
+        <span class="hero-card-org">Bangladesh Institute of Development Studies (BIDS)<br>
+         Dhaka, Bangladesh</span>
+      </div>
+    </div>
+
+    <div class="hero-card-item">
+      <span class="hero-card-icon">🔬</span>
+      <div class="hero-card-text">
+        <span class="hero-card-role">[Your Research Interest]</span>
+        <span class="hero-card-org">e.g. Development · Labour · Macro</span>
+      </div>
+    </div>
+
+    <div class="hero-card-item">
+      <span class="hero-card-icon">⚙️</span>
+      <div class="hero-card-text">
+        <span class="hero-card-role">Stata · R · Python</span>
+        <span class="hero-card-org">Econometrics & Data Analysis</span>
+      </div>
+    </div>
+
+    <div class="hero-card-status">
+      <div class="status-dot"></div>
+      <span class="status-text">Open to opportunities</span>
+    </div>
+  </div> -->
+</section>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="section-label">About</div>
   <h2 class="section-title">Who I Am</h2>
-  <p class="section-sub">A bit about my background, what drives me, and what I'm looking for.</p>
+  <p><br></p>
 
   <div class="about-grid">
     <div>
       <div class="about-photo-frame">
-        <div class="about-photo-placeholder">AKS</div>
-        <div class="about-photo-hint">Replace with your photo</div>
+        <!--<div class="about-photo-placeholder">AKS</div>-->
+        <div class="about-photo-hint"><img src="images/Site-Photo-Git11.jpg" alt="Apurbo Krishna Saha"></div>
         <div class="about-photo-corner tl"></div>
         <div class="about-photo-corner tr"></div>
         <div class="about-photo-corner bl"></div>
@@ -833,241 +1061,243 @@
     </div>
     <div>
       <p class="about-lead">
-        I'm a recently graduated economist with a Masters in Economics
-        from [Your University], passionate about [your area of interest].
+        A Data-Driven Economist 
       </p>
       <p class="about-body">
-        During my Masters, I developed strong foundations in econometric
-        analysis, data-driven research, and economic theory. I enjoy translating
-        complex datasets into clear, actionable insights — whether for academic
-        work or practical policy questions.
+        The economist in me is curious about how different policies shape our everyday lives, 
+        while the data analyst in me uses my skills in Stata, R, and Python to assess evidence, uncover patterns due to the policies. 
+        Off-screen, you’ll find me chasing light and stories through my lens.
       </p>
+     <!--
       <p class="about-body">
         I am currently seeking opportunities in economic research, data analysis,
         or policy work where I can apply my quantitative skills and grow as
         a professional economist.
-      </p>
+      </p>-->
 
       <div class="about-interests">
         <div class="about-interests-label">Research Interests</div>
         <div class="interest-tags">
+          <div class="interest-tag">Macroeconomics & Growth</div>
+          <div class="interest-tag">Microeconometrics</div>
           <div class="interest-tag">Development Economics</div>
-          <div class="interest-tag">Labour Markets</div>
-          <div class="interest-tag">Fiscal Policy</div>
-          <div class="interest-tag">South Asian Economies</div>
-          <div class="interest-tag">Causal Inference</div>
-          <div class="interest-tag">Poverty & Inequality</div>
+          <div class="interest-tag">Trade Policy</div>
+          <div class="interest-tag">Labour Market Analysis</div>
+          <div class="interest-tag">Applied Econometrics</div>
+          <div class="interest-tag">Economic Forecasting</div>
+          <div class="interest-tag">Application of Machine Learning (ML) in Economics</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-label">Skills</div>
-  <h2 class="section-title">What I Bring</h2>
-  <p class="section-sub">Technical tools and analytical methods I've built up through coursework and independent study.</p>
-
-  <div class="skills-grid">
-
-    <div class="skill-group">
-      <div class="skill-group-icon">Statistical Software</div>
-      <div class="skill-group-title">Econometric Tools</div>
-      <div class="skill-items">
-        <div class="skill-item">
-          <span class="skill-name">Stata</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">R</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Python</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Excel / Sheets</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
-        </div>
-      </div>
+<!-- BACKGROUND -->
+<section id="background">
+  <div class="section-label">Background</div>
+  
+  <h2 class="section-title">Work Experience</h2>
+  <p><br></p>
+  <div class="edu-timeline">
+  
+    <div class="edu-item">
+      <div class="edu-year">2026 – Present</div>
+      <div class="edu-degree">Research Analyst</div>
+      <div class="edu-school">Bangladesh Institute of Development Studies (BIDS)</div>
+      <div class="edu-location">E-17 Agargaon, Sher-e-Bangla Nagar, Dhaka-1207</div>
     </div>
-
-    <div class="skill-group">
-      <div class="skill-group-icon">Quantitative Methods</div>
-      <div class="skill-group-title">Econometrics</div>
-      <div class="skill-items">
-        <div class="skill-item">
-          <span class="skill-name">Regression Analysis</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Panel Data Methods</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Difference-in-Differences</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Time Series</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
-        </div>
-      </div>
+    
+    <div class="edu-item">
+      <div class="edu-year">2025 – Present</div>
+      <div class="edu-degree">Research Fellow</div>
+      <div class="edu-school">International Growth Centre (IGC)<br>
+        [Based at London School of Economics (LSE) and in partnership with the University of Oxford]</div>
+      <div class="edu-location">Sir Arthur Lewis Building (SAL), Houghton Street London WC2A 2AE, United Kingdom</div>
+      <a href="https://www.theigc.org/people/apurbo-krishna-saha" class="btn-secondary">IGC Profile</a>
     </div>
-
-    <div class="skill-group">
-      <div class="skill-group-icon">Communication</div>
-      <div class="skill-group-title">Presentation & Writing</div>
-      <div class="skill-items">
-        <div class="skill-item">
-          <span class="skill-name">Academic Writing</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Data Visualisation</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">Policy Brief Writing</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">LaTeX</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:60%"></div></div>
-        </div>
-      </div>
-    </div>
-
+  
   </div>
-</section>
 
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-label">Education</div>
-  <h2 class="section-title">Academic Background</h2>
-  <p class="section-sub">My formal training in economics and related fields.</p>
-
+  <p class="section-sub"> </p>
+  
+  <h2 class="section-title">Education</h2>
+  <p><br></p>
   <div class="edu-timeline">
 
     <div class="edu-item">
-      <div class="edu-year">20XX – 20XX</div>
-      <div class="edu-degree">Master of Science in Economics</div>
-      <div class="edu-school">[Your University] · [City, Country]</div>
+      <div class="edu-year">2024 – 2025</div>
+      <div class="edu-degree">Master of Social Sciences in Economics</div>
+      <div class="edu-school">University of Dhaka</div>
+      <div class="edu-location">Dhaka-1000, Bangladesh</div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-year">2020 – 2024</div>
+      <div class="edu-degree">Bachelor of Social Sciences in Economics</div>
+      <div class="edu-school">University of Dhaka</div>
+      <div class="edu-location">Dhaka-1000, Bangladesh</div>
       <div class="edu-detail">
-        Focused on econometrics, development economics, and macroeconomic theory.
-        Thesis: <em>"[Your Thesis Title Here]"</em> — supervised by [Supervisor Name].
-        GPA: [X.XX / 4.00] · Relevant courses: Advanced Econometrics, Development Economics,
-        Macroeconomics II, Labour Economics.
+        <bold>Achievement:</bold><br>
+        Received <em>Government Merit Scholarship for Academic Excellence in Undergraduate Studies</em> 
+        from Directorate of Secondary and Higher Education (DSHE), The Government of People's Republic of Bangladesh.
       </div>
     </div>
 
     <div class="edu-item">
-      <div class="edu-year">20XX – 20XX</div>
-      <div class="edu-degree">Bachelor of [Science / Arts] in Economics</div>
-      <div class="edu-school">[Your Undergraduate University] · [City, Country]</div>
-      <div class="edu-detail">
-        Graduated with [honours / distinction]. Majored in Economics with a minor in
-        [Statistics / Mathematics / other]. Final year GPA: [X.XX].
-      </div>
+      <div class="edu-year">2017 – 2019</div>
+      <div class="edu-degree">Higher Secondary Certificate (HSC)</div>
+      <div class="edu-school">Birshreshtha Noor Mohammad Public College</div>
+      <div class="edu-location">Peelkhana, Dhaka-1205, Bangladesh</div>
     </div>
-
+   
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-label">Projects</div>
-  <h2 class="section-title">Academic Work</h2>
-  <p class="section-sub">My thesis and selected coursework projects — the real work behind the degree.</p>
+ <!-- PROJECTS -->
+<section id="research">
+  <div class="section-label">Research</div>
+  <h2 class="section-title">Published Works</h2>
+  <p><br></p>
 
   <div class="projects-list">
 
     <div class="project-item">
       <div>
-        <div class="project-type">Masters Thesis · 20XX</div>
-        <div class="project-title">[Your Thesis Title Here]</div>
+        <div class="project-type">Conference Paper · 2025</div>
+        <div class="project-title">Classifying semantically sparse job titles: A methodological assessment from Bangladesh</div>
         <div class="project-desc">
-          A brief description of your thesis — what question you asked, what data
-          you used, what method you applied, and what you found. Two to three
-          sentences is enough. Be honest and specific.
-        </div>
-        <div class="project-tags">
-          <span class="tag">Stata</span>
-          <span class="tag">[Your Method]</span>
-          <span class="tag">[Topic]</span>
-        </div>
-      </div>
-      <div class="project-arrow">↗</div>
-    </div>
-
-    <div class="project-item">
-      <div>
-        <div class="project-type">Coursework Project · 20XX</div>
-        <div class="project-title">[Project Title — e.g. Replication Study / Policy Analysis]</div>
-        <div class="project-desc">
-          Description of the project — what you replicated or analysed, which dataset
-          you used, and any interesting findings or methodological insights you gained.
+          Authors: Bushra Chowdhury*, Apurbo Krishna Saha*, Dr. Md. Amzad Hossain, Dr. Atonu Rabbani<br>
+          Published in: Abstract Book of International Conference on Applied Statistics and Data Science 2025. 
+          Institute of Statistical Research and Training (ISRT), University of Dhaka.
         </div>
         <div class="project-tags">
           <span class="tag">R</span>
-          <span class="tag">Panel Data</span>
-          <span class="tag">[Topic]</span>
+          <span class="tag">Natural Language Processing</span>
+          <span class="tag">Econometrics & Data Science</span>
         </div>
       </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-arrow"><a href="#" title="Abstract Link Coming Soon">↗</a></div>
     </div>
 
     <div class="project-item">
       <div>
-        <div class="project-type">Independent Study · 20XX</div>
-        <div class="project-title">[Another Project or Data Analysis]</div>
+        <div class="project-type">Student Journal Paper · 2024</div>
+        <div class="project-title">Democracy’s Reflection: Exploring the Perceptions of University 
+          Students and Shaping the Future of Institutions in a Bangladeshi Context</div>
         <div class="project-desc">
-          Even a personal data project — analysing publicly available data on
-          something you care about — belongs here. It shows initiative and
-          practical skill beyond coursework.
+          Authors: Md. Ahad Al Azad Munem, Apurbo Krishna Saha<br>
+          Published in: Bangladesh Students’ Digest on Economics and Development<br> 
+          Volume: 5 · Issue: 1 · Page: 11-24<br>
+          <a href="http://dx.doi.org/10.2139/ssrn.5020798" class="abstract-link">Abstract ↗</a>
         </div>
         <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Data Visualisation</span>
+          <span class="tag">Stata</span>
+          <span class="tag">Primary Cross-sectional Data</span>
+          <span class="tag">Econometric Analysis</span>
         </div>
       </div>
-      <div class="project-arrow">↗</div>
+      <div class="project-arrow" title="View Abstract"><a href="http://dx.doi.org/10.2139/ssrn.5020798">↗</a></div>
     </div>
 
   </div>
 </section>
 
+ <!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Skills</div>
+  <h2 class="section-title">Technical Skills</h2>
+  <p><br></p>
+
+  <div class="skills-clusters">
+
+    <div class="skill-cluster">
+      <div class="skill-cluster-label">Statistical Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag skill-tag--primary">R</span>
+        <span class="skill-tag skill-tag--primary">Python</span>
+        <span class="skill-tag skill-tag--primary">Stata</span>
+        <span class="skill-tag">Excel</span>
+      </div>
+    </div>
+
+    <div class="skill-cluster">
+      <div class="skill-cluster-label">Database Management</div>
+      <div class="skill-tags">
+        <span class="skill-tag skill-tag--primary">SQL</span>
+      </div>
+    </div>
+   
+    <div class="skill-cluster">
+      <div class="skill-cluster-label">Research Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag skill-tag--primary">LaTeX</span>
+        <span class="skill-tag">MS Office Suite</span>
+        <span class="skill-tag">Google Workspace</span>
+        <span class="skill-tag">Zotero</span>
+        <span class="skill-tag">Mendeley</span>
+      </div>
+    </div>
+
+    <div class="skill-cluster">
+      <div class="skill-cluster-label">Econometric Methods</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Regression Analysis</span>
+        <span class="skill-tag">Panel Data</span>
+        <span class="skill-tag">Difference-in-Differences</span>
+        <span class="skill-tag">Time Series</span>
+        <span class="skill-tag">Causal Inference</span>
+      </div>
+    </div>
+
+    <div class="skill-cluster">
+      <div class="skill-cluster-label">Research Methods</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Policy Analysis</span>
+        <span class="skill-tag">Literature Review</span>
+        <span class="skill-tag">Survey Design</span>
+        <span class="skill-tag">Academic Writing</span>
+        <span class="skill-tag">Data Cleaning</span>
+        <span class="skill-tag">Economic Modelling</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-label">Contact</div>
   <h2 class="section-title">Let's Connect</h2>
-  <p class="section-sub">Open to research roles, analyst positions, internships, and academic collaborations.</p>
+  <p><br></p>
 
   <div class="contact-inner">
     <div>
       <p class="contact-desc">
-        Whether you have a research opportunity, want to discuss economics,
-        or just want to connect — feel free to reach out through any of
+        Feel free to reach out through any of
         the channels below. I try to respond within a day or two.
       </p>
       <div class="contact-links">
-        <a href="mailto:you@email.com" class="contact-link">
+        <a href="ks.apurbobds@gmail.com" class="contact-link">
           <span class="contact-link-icon">Email</span>
-          you@email.com
+          ks.apurbobds@gmail.com
         </a>
-        <a href="#" class="contact-link">
+        <a href="https://www.linkedin.com/in/apurbo-krishna-saha" class="contact-link">
           <span class="contact-link-icon">LinkedIn</span>
-          linkedin.com/in/yourname
+          apurbo-krishna-saha
         </a>
-        <a href="#" class="contact-link">
+        <!--<a href="#" class="contact-link">
           <span class="contact-link-icon">GitHub</span>
           github.com/yourname
-        </a>
-        <a href="#" class="contact-link">
-          <span class="contact-link-icon">CV / Resume</span>
+        </a>-->
+        <a href="https://drive.google.com/file/d/1diiuLyAkPt7ZG363P9_JIy10d-0Fzl5B/view?usp=drive_link" class="contact-link">
+          <span class="contact-link-icon">CV</span>
           Download PDF
+        </a>
+       <a href="photography.html" class="contact-link">
+          <span class="contact-link-icon">Socials</span>
+          View the photography page
         </a>
       </div>
     </div>
@@ -1083,15 +1313,18 @@
       </div>
       <div class="form-group">
         <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="Research opportunity, collaboration, etc."/>
+        <input type="text" id="subject" name="subject" placeholder="Theme of the message"/>
       </div>
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Tell me about your project or opportunity…" required></textarea>
+        <textarea id="message" name="message" placeholder="Detailed message" required></textarea>
       </div>
       <button type="submit" class="btn-primary" style="width:fit-content;cursor:pointer;">Send Message</button>
       <p id="form-feedback" style="font-family:var(--mono);font-size:11px;color:var(--accent);display:none;letter-spacing:0.1em;">
         ✓ Message sent — I'll be in touch soon.
+      </p>
+      <p id="form-error" style="font-family:var(--mono);font-size:11px;color:#e07070;display:none;letter-spacing:0.1em;">
+        ✗ Something went wrong. Please email me directly.
       </p>
     </form>
   </div>
@@ -1099,22 +1332,62 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 Apurbo Krishna Saha · Economics Graduate</p>
+  <p>© 2026 Apurbo Krishna Saha · All Rights Reserved</p>
   <div class="footer-socials">
-    <a href="#">LinkedIn</a>
-    <a href="#">GitHub</a>
-    <a href="#">Email</a>
-    <a href="photography.html" style="color:var(--muted);opacity:0.5;font-style:italic;letter-spacing:0.06em;text-transform:none;transition:opacity 0.2s,color 0.2s;" onmouseover="this.style.opacity='1';this.style.color='var(--accent)'" onmouseout="this.style.opacity='0.5';this.style.color='var(--muted)'">also a photographer ↗</a>
+    <a href="#" class="back-to-top" id="backToTop" title="Back to top">↑ Top</a>
   </div>
 </footer>
 
 <script>
-function handleSubmit(e) {
+// Back to top visibility
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) backToTop.classList.add('visible');
+  else backToTop.classList.remove('visible');
+});
+backToTop.addEventListener('click', e => {
   e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+ 
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxmLrTQ87DIF5Xo6Ql1q60maJyevB-UXTg0ta87G_h_IhmyEDc0P7UAm5BX7FxX_hluZw/exec';
+ 
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
   const fb = document.getElementById('form-feedback');
-  fb.style.display = 'block';
-  e.target.reset();
-  setTimeout(() => { fb.style.display = 'none'; }, 5000);
+  const err = document.getElementById('form-error');
+  fb.style.display = 'none';
+  err.style.display = 'none';
+ 
+  const data = {
+    name:    form.name.value,
+    email:   form.email.value,
+    subject: form.subject.value,
+    message: form.message.value
+  };
+ 
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+ 
+  try {
+    const res = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    fb.style.display = 'block';
+    form.reset();
+    setTimeout(() => { fb.style.display = 'none'; }, 6000);
+  } catch (error) {
+    err.style.display = 'block';
+    setTimeout(() => { err.style.display = 'none'; }, 6000);
+  } finally {
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+  }
 }
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
