@@ -1344,18 +1344,20 @@
 
 <script>
 // Open all external links in a new tab
-document.querySelectorAll('a[href]').forEach(link => {
-  const href = link.getAttribute('href');
-  if (
-    href.startsWith('http') ||
-    href.startsWith('https') ||
-    href.endsWith('.pdf') ||
-    href.endsWith('.html')
-  ) {
-    link.setAttribute('target', '_blank');
-    link.setAttribute('rel', 'noopener noreferrer');
-  }
-});
+if (window.innerWidth > 900) {
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (
+      href.startsWith('http') ||
+      href.startsWith('https') ||
+      href.endsWith('.pdf') ||
+      href.endsWith('.html')
+    ) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+}
 
 // Trigger hover-style on tap for touch devices
 document.querySelectorAll('.interest-tag').forEach(tag => {
