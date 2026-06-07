@@ -1299,7 +1299,7 @@
           <span class="contact-link-icon">Flickr</span>
           View Photostream
         </a>
-        <a href="https://https://www.instagram.com/ksapurbo/" class="contact-link">
+        <a href="https://www.instagram.com/ksapurbo/" class="contact-link">
           <span class="contact-link-icon">Instagram</span>
           View Profile
         </a>
@@ -1355,6 +1355,20 @@ document.querySelectorAll('a[href]').forEach(link => {
     link.setAttribute('target', '_blank');
     link.setAttribute('rel', 'noopener noreferrer');
   }
+});
+
+// Trigger hover-style on tap for touch devices
+document.querySelectorAll('.interest-tag').forEach(tag => {
+  tag.addEventListener('touchstart', () => {
+    tag.style.borderColor = 'var(--accent)';
+    tag.style.color = 'var(--accent)';
+  });
+  tag.addEventListener('touchend', () => {
+    setTimeout(() => {
+      tag.style.borderColor = '';
+      tag.style.color = '';
+    }, 400);
+  });
 });
 
 // Back to top visibility
