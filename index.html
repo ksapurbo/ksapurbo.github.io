@@ -1343,6 +1343,20 @@
 </footer>
 
 <script>
+// Open all external links in a new tab
+document.querySelectorAll('a[href]').forEach(link => {
+  const href = link.getAttribute('href');
+  if (
+    href.startsWith('http') ||
+    href.startsWith('https') ||
+    href.endsWith('.pdf') ||
+    href.endsWith('.html')
+  ) {
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noopener noreferrer');
+  }
+});
+
 // Back to top visibility
 const backToTop = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
