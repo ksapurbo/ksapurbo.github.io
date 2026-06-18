@@ -10,19 +10,64 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #0a0a0f; /*#06080f;*/
-    --surface: #11111a; /*#0e1220;*/
-    --surface2: #18182a; /*#151a2e;*/
-    --border: rgba(255,255,255,0.07); /*rgba(61, 107, 158, 0.12);*/
-    --border-hover: rgba(255,255,255,0.15); /*rgba(61, 107, 158, 0.28);*/
-    --text: #e8e8f0; /*#dde4f0;*/
-    --muted: #7a7a99; /*#6a7488;*/
-    --accent: #c8a96e; /*#4d9ef5;*/
-    --accent2: #7b9cda; /*#a78bfa;*/
+    --bg: #06080f;
+    --surface: #0e1220;
+    --surface2: #151a2e;
+    --border: rgba(61, 107, 158, 0.12);
+    --border-hover: rgba(61, 107, 158, 0.28);
+    --text: #dde4f0;
+    --muted: #6a7488;
+    --accent: #4d9ef5;
+    --accent2: #a78bfa;
     --serif: 'Playfair Display', Georgia, serif;
     --sans: 'DM Sans', sans-serif;
     --mono: 'DM Mono', monospace;
+    --nav-bg: rgba(6, 8, 15, 0.88);
+    --mobile-menu-bg: rgba(6, 8, 15, 0.97);
+    --hero-card-status-bg: rgba(77,158,245,0.06);
+    --hero-card-status-border: rgba(77,158,245,0.18);
+    --skill-tag-primary-bg: rgba(77,158,245,0.05);
+    --skill-tag-primary-border: rgba(77,158,245,0.22);
+    --transition-theme: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
+
+  :root[data-theme="light"] {
+    --bg: #f4f1ea;
+    --surface: #eae6dc;
+    --surface2: #ddd8cc;
+    --border: rgba(61, 107, 158, 0.14);
+    --border-hover: rgba(61, 107, 158, 0.32);
+    --text: #1a1e2e;
+    --muted: #6a7080;
+    --accent: #1a5fb4;
+    --accent2: #6b4fc8;
+    --nav-bg: rgba(244, 241, 234, 0.92);
+    --mobile-menu-bg: rgba(244, 241, 234, 0.98);
+    --hero-card-status-bg: rgba(26,95,180,0.06);
+    --hero-card-status-border: rgba(26,95,180,0.18);
+    --skill-tag-primary-bg: rgba(26,95,180,0.05);
+    --skill-tag-primary-border: rgba(26,95,180,0.22);
+  }
+
+  /* ── THEME TOGGLE ── */
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--border-hover);
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s, border-color 0.2s;
+    flex-shrink: 0;
+  }
+  .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+  .theme-toggle-icon { font-size: 13px; line-height: 1; }
 
   html { scroll-behavior: smooth; }
 
@@ -45,7 +90,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.25rem 4rem;
-    background: rgba(10,10,15,0.85);
+    background: var(--nav-bg);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
@@ -100,7 +145,7 @@
     display: none;
     position: fixed;
     top: 57px; left: 0; right: 0;
-    background: rgba(10,10,15,0.97);
+    background: var(--mobile-menu-bg);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     z-index: 99;
@@ -140,8 +185,8 @@
     position: fixed;
     inset: 0;
     background-image:
-      linear-gradient(rgba(200,169,110,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(200,169,110,0.03) 1px, transparent 1px);
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
     background-size: 60px 60px;
     pointer-events: none;
     z-index: 0;
@@ -216,7 +261,7 @@
   .btn-primary {
     padding: 0.75rem 2rem;
     background: var(--accent);
-    color: #0a0a0f;
+    color: #ffffff;
     font-family: var(--mono);
     font-size: 12px;
     font-weight: 400;
@@ -371,7 +416,7 @@
   .about-photo-placeholder {
     font-family: var(--serif);
     font-size: 4rem;
-    color: rgba(200,169,110,0.15);
+    color: rgba(77,158,245,0.15);
     user-select: none;
   }
   .about-photo-hint {
@@ -570,7 +615,7 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--accent2);
-    border: 1px solid rgba(123,156,218,0.2);
+    border: 1px solid var(--border-hover);
     padding: 3px 10px;
   }
   .project-arrow {
@@ -647,8 +692,8 @@
   .skill-tag:hover { color: var(--text); border-color: var(--border-hover); }
   .skill-tag--primary {
     color: var(--text);
-    border-color: rgba(200,169,110,0.25);
-    background: rgba(200,169,110,0.04);
+    border-color: var(--skill-tag-primary-border);
+    background: var(--skill-tag-primary-bg);
   }
   .skill-tag--primary:hover { border-color: var(--accent); color: var(--accent); }
 
@@ -746,7 +791,7 @@
     opacity: 1;
     pointer-events: auto;
   }
-  .back-to-top:hover { color: var(--accent); border-color: rgba(200,169,110,0.4); }
+  .back-to-top:hover { color: var(--accent); border-color: var(--border-hover); }
   footer {
     border-top: 1px solid var(--border);
     padding: 2.5rem 4rem;
@@ -842,8 +887,8 @@
   .hero-card-status {
     margin-top: 2rem;
     padding: 0.85rem 1.25rem;
-    background: rgba(200,169,110,0.06);
-    border: 1px solid rgba(200,169,110,0.15);
+    background: var(--hero-card-status-bg);
+    border: 1px solid var(--hero-card-status-border);
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -921,7 +966,7 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#"><img src="images/site-logo-git1.png" alt="Home" height=40px></a>
+  <a class="nav-logo" href="#"><img src="images/site-logo-git2.png" alt="Home" height=40px></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#background">Background</a></li>
@@ -929,9 +974,15 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+      <span class="theme-toggle-icon" id="themeIcon">☀</span>
+      <span id="themeLabel">Light</span>
+    </button>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
@@ -1423,6 +1474,34 @@ async function handleSubmit(e) {
     btn.disabled = false;
   }
 }
+// ── THEME TOGGLE ──
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const themeLabel = document.getElementById('themeLabel');
+const root = document.documentElement;
+
+function applyTheme(theme) {
+  root.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  if (theme === 'light') {
+    themeIcon.textContent = '☽';
+    themeLabel.textContent = 'Dark';
+  } else {
+    themeIcon.textContent = '☀';
+    themeLabel.textContent = 'Light';
+  }
+}
+
+// Load saved preference or system preference
+const saved = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+applyTheme(saved || (prefersDark ? 'dark' : 'light'));
+
+themeToggle.addEventListener('click', () => {
+  const current = root.getAttribute('data-theme');
+  applyTheme(current === 'light' ? 'dark' : 'light');
+});
+
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 hamburger.addEventListener('click', () => {
