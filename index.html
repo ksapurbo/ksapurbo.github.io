@@ -399,7 +399,7 @@
     align-items: start;
   }
   .about-grid > div:first-child {
-    position: sticky;
+    position: static; /*sticky;*/
     top: 6rem;
   }
   .about-photo-frame {
@@ -666,16 +666,18 @@
     display: flex;
     flex-direction: column;
     gap: 0;
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-hover);
+    border-left: none;
   }
   .skill-cluster {
-    padding: 2rem 2.5rem;
-    border-bottom: 1px solid var(--border);
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 2rem;
-    align-items: start;
-    transition: background 0.2s;
+  padding: 2rem 2.5rem;
+  border-bottom: 1px solid var(--border-hover);
+  border-left: 3px solid transparent;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  align-items: start;
+  transition: background 0.2s, border-color 0.2s;
   }
   .skill-cluster:last-child { border-bottom: none; }
   .skill-cluster:hover { background: var(--surface); }
