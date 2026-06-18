@@ -671,6 +671,7 @@
   }
   .skill-cluster {
   padding: 2rem 2.5rem;
+  background: var(--surface);
   border-bottom: 1px solid var(--border-hover);
   border-left: 3px solid transparent;
   display: grid;
@@ -680,7 +681,10 @@
   transition: background 0.2s, border-color 0.2s;
   }
   .skill-cluster:last-child { border-bottom: none; }
-  .skill-cluster:hover { background: var(--surface); border-left-color: var(--accent);}
+  .skill-cluster:hover { 
+   background: var(--surface); 
+   border-left-color: var(--accent);
+  }
   .skill-cluster-label {
     font-family: var(--mono);
     font-size: 10px;
