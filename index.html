@@ -461,8 +461,11 @@
   }
   .about-interests {
     margin-top: 1.75rem;
-    padding-top: 1.75rem;
-    border-top: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border-hover);
+    border-left: 3px solid var(--accent);
+    background: var(--surface);
+    border-radius: 0 2px 2px 0;
   }
   .about-interests-label {
     font-family: var(--mono);
@@ -471,6 +474,16 @@
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .about-interests-label::after {
+    content: '';
+    display: block;
+    flex: 1;
+    height: 1px;
+    background: var(--border-hover);
   }
   .interest-tags {
     display: flex;
@@ -481,12 +494,13 @@
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.08em;
-    color: var(--muted);
-    border: 1px solid var(--border);
+    color: var(--text);
+    border: 1px solid var(--border-hover);
+    background: var(--surface2);
     padding: 4px 12px;
-    transition: border-color 0.2s, color 0.2s;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
   }
-  .interest-tag:hover { border-color: var(--accent); color: var(--accent); }
+  .interest-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--surface); }
  
   /* ── EDUCATION (BACKGROUND) ── */
   .edu-timeline {
@@ -966,7 +980,10 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#"><img src="images/site-logo-git2.png" alt="Home" height=40px></a>
+  <a class="nav-logo" href="#">
+    <img src="images/site-logo-git2-dark-4d9ef5.webp" alt="Home" height="40px" id="logo-dark" class="theme-logo">
+    <img src="images/site-logo-git2-light-12437e.webp" alt="Home" height="40px" id="logo-light" class="theme-logo" style="display:none;">
+  </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#background">Background</a></li>
@@ -1483,12 +1500,18 @@ const root = document.documentElement;
 function applyTheme(theme) {
   root.setAttribute('data-theme', theme);
   localStorage.setItem('theme', theme);
+  const logoDark = document.getElementById('logo-dark');
+  const logoLight = document.getElementById('logo-light');
   if (theme === 'light') {
     themeIcon.textContent = '☽';
     themeLabel.textContent = 'Dark';
+    if (logoDark) logoDark.style.display = 'none';
+    if (logoLight) logoLight.style.display = 'block';
   } else {
     themeIcon.textContent = '☀';
     themeLabel.textContent = 'Light';
+    if (logoDark) logoDark.style.display = 'block';
+    if (logoLight) logoLight.style.display = 'none';
   }
 }
 
