@@ -1021,7 +1021,7 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-label">Hello, I'm</div>
+    <div class="hero-label"></div>
     <h1 class="hero-name">
       <span class="hero-name-first">Apurbo Krishna</span>
       <span class="hero-name-last">Saha</span>
@@ -1508,10 +1508,9 @@ function applyTheme(theme) {
   }
 }
 
-// Load saved preference or system preference
+// Load saved preference, otherwise default to dark
 const saved = localStorage.getItem('theme');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-applyTheme(saved || (prefersDark ? 'dark' : 'light'));
+applyTheme(saved || 'dark');
 
 themeToggle.addEventListener('click', () => {
   const current = root.getAttribute('data-theme');
