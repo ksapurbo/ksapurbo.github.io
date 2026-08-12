@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="icon" type="image/png" href="images/site-logo.webp">
 <title>Apurbo Krishna Saha</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=DM+Mono:wght@300;400&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
 <meta name="description" content="Apurbo Krishna Saha — Research Analyst at BIDS, focusing on the labour market and development research.">
 <link rel="canonical" href="https://ksapurbo.github.io/">
 
@@ -290,6 +290,23 @@
     flex-wrap: wrap;
     margin-bottom: 4rem;
   }
+
+  .hero-status-mobile {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0.4rem 0.75rem;
+    background: var(--hero-card-status-bg);
+    border: 1px solid var(--hero-card-status-border);
+    width: fit-content;
+  }
+  .hero-status-mobile .status-dot { flex-shrink: 0; }
+  .hero-status-mobile .status-text { font-size: 10px; }
+  @media (max-width: 900px) {
+  .hero-status-mobile { display: flex; }
+  }
+
   .btn-primary {
     padding: 0.75rem 2rem;
     background: var(--accent);
@@ -421,6 +438,117 @@
     font-size: 0.95rem;
     margin-bottom: 3.5rem;
     max-width: 55ch;
+  }
+  
+    /* ── HERO ABOUT CARD ── */
+  .hero-card {
+    position: relative;
+    z-index: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    animation: fadeUp 0.7s ease 0.5s both;
+  }
+  .hero-card-header {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .hero-card-header::before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero-card-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-card-item:last-of-type { border-bottom: none; }
+  .hero-card-icon {
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    opacity: 0.6;
+  }
+  .hero-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .hero-card-role {
+    font-family: var(--sans);
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .hero-card-org {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+  .hero-card-status {
+    margin-top: 2rem;
+    padding: 0.85rem 1.25rem;
+    background: var(--hero-card-status-bg);
+    border: 1px solid var(--hero-card-status-border);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background: #5ccea0;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(92,206,160,0.6);
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(92,206,160,0.6); }
+    50% { opacity: 0.5; box-shadow: 0 0 3px rgba(92,206,160,0.2); }
+  }
+  .status-text {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #5ccea0;
+  }
+  
+  .role-live-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 13px;
+    height: 13px;
+    line-height: 1;
+    margin-top: 5px;
+    opacity: 1;
+  }
+  .role-live-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #5ccea0;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(92,206,160,0.6);
+    animation: pulse 2.5s ease-in-out infinite;
   }
 
   /* ── ABOUT ── */
@@ -876,96 +1004,6 @@
   }
   .footer-socials a:hover { color: var(--accent); }
 
-  /* ── HERO ABOUT CARD ── */
-  .hero-card {
-    position: relative;
-    z-index: 1;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 2rem 2.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    animation: fadeUp 0.7s ease 0.5s both;
-  }
-  .hero-card-header {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .hero-card-header::before {
-    content: '';
-    display: block;
-    width: 1.5rem;
-    height: 1px;
-    background: var(--accent);
-  }
-  .hero-card-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 0.9rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .hero-card-item:last-of-type { border-bottom: none; }
-  .hero-card-icon {
-    font-size: 13px;
-    flex-shrink: 0;
-    margin-top: 1px;
-    opacity: 0.6;
-  }
-  .hero-card-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-  }
-  .hero-card-role {
-    font-family: var(--sans);
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: var(--text);
-    line-height: 1.3;
-  }
-  .hero-card-org {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    color: var(--accent);
-  }
-  .hero-card-status {
-    margin-top: 2rem;
-    padding: 0.85rem 1.25rem;
-    background: var(--hero-card-status-bg);
-    border: 1px solid var(--hero-card-status-border);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .status-dot {
-    width: 6px;
-    height: 6px;
-    background: #5ccea0;
-    border-radius: 50%;
-    flex-shrink: 0;
-    box-shadow: 0 0 8px rgba(92,206,160,0.6);
-    animation: pulse 2.5s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(92,206,160,0.6); }
-    50% { opacity: 0.5; box-shadow: 0 0 3px rgba(92,206,160,0.2); }
-  }
-  .status-text {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: #5ccea0;
-  }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
@@ -980,6 +1018,7 @@
   .hero-inner > *:nth-child(3) { animation-delay: 0.3s; }
   .hero-inner > *:nth-child(4) { animation-delay: 0.4s; }
   .hero-inner > *:nth-child(5) { animation-delay: 0.5s; }
+  .hero-inner > *:nth-child(6) { animation-delay: 0.6s; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
@@ -1053,7 +1092,11 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-label"></div>
+    <!-- <div class="hero-label">Hello, I'm</div>-->
+    <div class="hero-status-mobile">
+        <span class="status-dot"></span>
+        <span class="status-text">Research Analyst, BIDS</span>
+    </div>
     <h1 class="hero-name">
       <span class="hero-name-first">Apurbo Krishna</span>
       <span class="hero-name-last">Saha</span>
@@ -1062,6 +1105,7 @@
     <p class="hero-desc">
       A curious Economics graduate with a passion for data, empirical and analytical research, and real-world impact.
     </p>
+    
     <div class="hero-cta">
       <a href="https://drive.google.com/file/d/1HA9cPmlPhjHYKr0hKJxHoA-aXHmNXc4S/view?usp=sharing" class="btn-primary">View My CV</a>
       <a href="#contact" class="btn-secondary">Get in Touch</a>
@@ -1078,11 +1122,11 @@
     <div class="hero-card-header">At a Glance</div>
     
     <div class="hero-card-item">
-      <span class="hero-card-icon">💼</span>
-      <div class="hero-card-text">
+        <span class="hero-card-icon role-live-icon"><span class="role-live-dot"></span></span>
+        <div class="hero-card-text">
         <span class="hero-card-role">Research Analyst</span>
         <span class="hero-card-org">Bangladesh Institute of Development Studies (BIDS)</span>
-      </div>
+        </div>
     </div>
    
     <div class="hero-card-item">
@@ -1110,7 +1154,14 @@
     </div>
 
 <!--
-  
+   <div class="hero-card-item">
+      <span class="hero-card-icon">💼</span>
+      <div class="hero-card-text">
+        <span class="hero-card-role">Former Research Analyst</span>
+        <span class="hero-card-org">Bangladesh Institute of Development Studies (BIDS)</span>
+      </div>
+    </div>
+    
     <div class="hero-card-item">
       <span class="hero-card-icon">🔬</span>
       <div class="hero-card-text">
@@ -1124,6 +1175,7 @@
       <span class="status-text">Open to opportunities</span>
     </div>
   </div> -->
+  </div>
 </section>
 
 <!-- ABOUT -->
