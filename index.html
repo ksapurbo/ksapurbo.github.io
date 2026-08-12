@@ -524,6 +524,19 @@
     0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(92,206,160,0.6); }
     50% { opacity: 0.5; box-shadow: 0 0 3px rgba(92,206,160,0.2); }
   }
+  @keyframes pulseLight {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(31,122,82,0.6); }
+    50% { opacity: 0.5; box-shadow: 0 0 3px rgba(31,122,82,0.2); }
+  }
+
+  :root[data-theme="light"] .status-dot,
+  :root[data-theme="light"] .role-live-dot {
+    background: #1f7a52;
+    animation-name: pulseLight;
+  }
+  :root[data-theme="light"] .status-text {
+    color: #1f7a52;
+  }
   .status-text {
     font-family: var(--mono);
     font-size: 11px;
@@ -1027,6 +1040,8 @@
     .nav-hamburger { display: flex; }
     #hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; gap: 2.5rem; }
     .hero-card { display: none; }
+    .hero-name-first { font-size: clamp(2.1rem, 6vw, 2.4rem); }
+    .hero-name-last { font-size: clamp(4.4rem, 14vw, 5.2rem); }
     section { padding: 4rem 1.5rem; }
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .about-grid > div:first-child { position: static; }
@@ -1041,7 +1056,8 @@
   @media (max-width: 480px) {
     nav { padding: 0.9rem 1.25rem; }
     #hero { padding: 5.5rem 1.25rem 2.5rem; }
-    .hero-name { font-size: clamp(2.2rem, 10vw, 2.8rem); }
+    .hero-name-first { font-size: clamp(2.1rem, 6vw, 2.4rem); }
+    .hero-name-last { font-size: clamp(4.4rem, 14vw, 5.2rem); }
     section { padding: 3rem 1.25rem; }
     .skill-cluster { padding: 1.5rem 1.25rem; }
     .project-item { padding: 1.75rem 1.25rem; }
@@ -1154,14 +1170,7 @@
     </div>
 
 <!--
-   <div class="hero-card-item">
-      <span class="hero-card-icon">💼</span>
-      <div class="hero-card-text">
-        <span class="hero-card-role">Former Research Analyst</span>
-        <span class="hero-card-org">Bangladesh Institute of Development Studies (BIDS)</span>
-      </div>
-    </div>
-    
+  
     <div class="hero-card-item">
       <span class="hero-card-icon">🔬</span>
       <div class="hero-card-text">
