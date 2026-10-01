@@ -447,6 +447,9 @@
     gap: 0;
     animation: fadeUp 0.7s ease 0.5s both;
   }
+  :root[data-theme="light"] .hero-card {
+    background: linear-gradient(var(--surface), var(--border));
+  }
   .hero-card-header {
     font-family: var(--mono);
     font-size: 10px;
@@ -857,7 +860,7 @@
     flex-direction: column;
     gap: 0;
     border: 1px solid var(--border-hover);
-    border-left: none;
+    /* border-left: none; */
   }
   .skill-cluster {
   padding: 2rem 2.5rem;
