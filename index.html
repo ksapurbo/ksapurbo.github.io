@@ -181,7 +181,7 @@
   .content-card::before { content: ""; position: absolute; inset: 1px; background: var(--bg-gradient-jet); border-radius: inherit; z-index: -1; }
 
   /* ───────── MAIN / SIDEBAR ───────── */
-  main { margin: 78px 12px 40px; min-width: 259px; }
+  main { margin: 78px 12px 24px; min-width: 259px; }
 
   .sidebar { margin-bottom: 15px; max-height: 134px; overflow: hidden; transition: var(--transition-2); }
   @media (max-width: 360px) { .sidebar:not(.active) { max-height: 158px; } }
@@ -406,7 +406,7 @@
   .form-note.ok { color: var(--success); }
   .form-note.err { color: #e07070; }
 
-  footer { text-align: center; font-size: var(--fs-8); color: var(--light-gray-70); margin: 20px 0 0; }
+  .site-footer { text-align: center; font-size: var(--fs-8); letter-spacing: 0.04em; color: var(--light-gray-70); padding: 8px 16px 32px; }
   .sidebar-foot { display: none; }
 
   /* ───────── BREAKPOINTS ───────── */
@@ -420,7 +420,7 @@
     .article-title { padding-bottom: 15px; }
     .article-title::after { width: 40px; height: 5px; }
     .icon-box { width: 48px; height: 48px; border-radius: 12px; font-size: 18px; }
-    main { margin-top: 105px; margin-bottom: 60px; }
+    main { margin-top: 105px; margin-bottom: 24px; }
     .sidebar { max-height: 188px; margin-bottom: 30px; }
     .sidebar.active { max-height: 700px; }
     .topbar { padding: 12px 30px; }
@@ -466,7 +466,7 @@
   @media (min-width: 1024px) {
     :root { --shadow-1: -4px 8px 24px hsla(0,0%,0%,0.125); --shadow-2: 0 16px 30px hsla(0,0%,0%,0.125); --shadow-3: 0 16px 40px hsla(0,0%,0%,0.125); }
     .sidebar, article { width: 950px; box-shadow: var(--shadow-5); }
-    main { margin-top: 60px; margin-bottom: 60px; }
+    main { margin-top: 60px; margin-bottom: 24px; }
     .topbar { display: none; }
     .main-content { position: relative; width: max-content; margin: auto; }
     .navbar { display: block; position: absolute; inset: 0 0 auto auto; width: max-content; border-radius: 0 20px; padding: 0 20px; box-shadow: none; }
@@ -528,7 +528,7 @@
       <img class="logo-light" src="images/site-logo-git3-light-9D4925.webp" alt="Apurbo Krishna Saha">
     </a>
     <div class="topbar-actions">
-      <button class="theme-top" id="themeBtnMobile" data-theme-toggle aria-label="Switch colour theme" title="Switch theme">
+      <button class="theme-top" id="themeBtnMobile" data-theme-toggle aria-label="Switch to light theme" title="Light">
         <ion-icon class="theme-icon" name="sunny-outline"></ion-icon>
       </button>
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -636,7 +636,7 @@
         <li><button class="navbar-link" data-nav-link>Research</button></li>
         <li><button class="navbar-link" data-nav-link>Skills</button></li>
         <li><button class="navbar-link" data-nav-link>Contact</button></li>
-        <li><button class="theme-btn" id="themeBtn" data-theme-toggle aria-label="Switch colour theme" title="Switch theme"><ion-icon class="theme-icon" name="sunny-outline"></ion-icon></button></li>
+        <li><button class="theme-btn" id="themeBtn" data-theme-toggle aria-label="Switch to light theme" title="Light"><ion-icon class="theme-icon" name="sunny-outline"></ion-icon></button></li>
       </ul>
     </nav>
 
@@ -883,11 +883,13 @@
         </form>
       </section>
 
-      <footer>© 2026 Apurbo Krishna Saha · All Rights Reserved</footer>
     </article>
 
   </div>
 </main>
+
+<!-- Site-wide footer: sits below the profile and content boxes, on every page -->
+<footer class="site-footer">© 2026 Apurbo Krishna Saha · All Rights Reserved</footer>
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -963,6 +965,11 @@ const root = document.documentElement;
 function applyTheme(t) {
   root.setAttribute('data-theme', t);
   document.querySelectorAll('.theme-icon').forEach(i => i.setAttribute('name', t === 'dark' ? 'sunny-outline' : 'moon-outline'));
+  // Tooltip names the mode you will switch to: "Light" while in dark, "Night" while in light
+  document.querySelectorAll('[data-theme-toggle]').forEach(b => {
+    b.title = t === 'dark' ? 'Light' : 'Night';
+    b.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to night theme');
+  });
   try { localStorage.setItem('theme', t); } catch (e) {}
 }
 let savedTheme = null;
