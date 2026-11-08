@@ -19,7 +19,7 @@
 <title>Apurbo Krishna Saha</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&amp;family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;display=swap" rel="stylesheet"/>
 <meta name="description" content="Apurbo Krishna Saha — Research Analyst at BIDS, focusing on the labour market and development research.">
 <link rel="canonical" href="https://ksapurbo.github.io/">
 
@@ -45,80 +45,80 @@
 
 <style>
   /* ───────── TOKENS ───────── */
-  /* Palette: warm ash + copper. Edit these variables to re-colour the whole site. */
+  /* Palette: midnight ink + teal (dark)  ·  cool paper + deep teal (light). Edit these variables to re-colour the whole site. */
   :root {
-    --bg-gradient-onyx: linear-gradient(to bottom right, hsl(30,4%,23%) 3%, hsl(30,4%,16%) 97%);
-    --bg-gradient-jet: linear-gradient(to bottom right, hsla(30,5%,32%,0.22) 0%, hsla(30,5%,32%,0) 100%), hsl(30,4%,16%);
-    --bg-gradient-yellow-1: linear-gradient(to bottom right, hsl(24,62%,66%) 0%, hsla(20,56%,60%,0) 50%);
-    --bg-gradient-yellow-2: linear-gradient(135deg, hsla(24,62%,66%,0.22) 0%, hsla(20,56%,60%,0) 60%), hsl(30,4%,11%);
-    --border-gradient-onyx: linear-gradient(to bottom right, hsl(30,4%,29%) 0%, hsla(30,4%,29%,0) 50%);
-    --text-gradient-yellow: linear-gradient(to right, hsl(26,60%,68%), hsl(16,52%,58%));
+    --bg-gradient-onyx: linear-gradient(to bottom right, hsl(214,26%,20%) 3%, hsl(214,28%,13%) 97%);
+    --bg-gradient-jet: linear-gradient(to bottom right, hsla(200,30%,40%,0.16) 0%, hsla(200,30%,40%,0) 100%), hsl(214,27%,14%);
+    --bg-gradient-yellow-1: linear-gradient(to bottom right, hsl(172,54%,56%) 0%, hsla(172,54%,56%,0) 50%);
+    --bg-gradient-yellow-2: linear-gradient(135deg, hsla(172,54%,56%,0.20) 0%, hsla(172,54%,56%,0) 60%), hsl(214,30%,9%);
+    --border-gradient-onyx: linear-gradient(to bottom right, hsl(214,22%,27%) 0%, hsla(214,22%,27%,0) 50%);
+    --text-gradient-yellow: linear-gradient(to right, hsl(172,56%,60%), hsl(196,56%,58%));
 
-    --jet: hsl(30,3%,27%);            /* borders */
-    --onyx: hsl(30,3%,20%);           /* chips, active menu item */
-    --eerie-black-1: hsl(30,3%,12.5%);
-    --eerie-black-2: hsl(30,3%,11.5%); /* cards */
-    --page-bg: hsl(30,3%,16%);        /* charcoal ash */
-    --page-glow: hsla(24,50%,52%,0.09);
+    --jet: hsl(214,20%,24%);            /* borders */
+    --onyx: hsl(214,24%,19%);           /* chips, active menu item */
+    --eerie-black-1: hsl(214,28%,11.5%);
+    --eerie-black-2: hsl(214,28%,12.5%); /* cards */
+    --page-bg: hsl(214,32%,9.5%);       /* midnight ink */
+    --page-glow: hsla(180,60%,45%,0.10);
     --wm-opacity: 0.25;               /* desktop logo watermark strength */
     --wm-blur: 3px;
-    --white-1: hsl(30,18%,96%);
-    --white-2: hsl(30,18%,96%);
-    --accent: hsl(24,58%,66%);
-    --accent-soft: hsl(24,40%,57%);
-    --link: hsl(28,48%,74%);
-    --light-gray: hsl(30,7%,76%);
-    --light-gray-70: hsla(30,7%,76%,0.72);
-    --danger: hsl(2,48%,52%);
-    --success: #6cc3a0;
-    --navbar-bg: hsla(30,3%,13%,0.82);
+    --white-1: hsl(210,30%,96%);
+    --white-2: hsl(210,30%,96%);
+    --accent: hsl(172,54%,56%);
+    --accent-soft: hsl(184,34%,60%);
+    --link: hsl(186,60%,70%);
+    --light-gray: hsl(214,16%,74%);
+    --light-gray-70: hsla(214,16%,74%,0.72);
+    --danger: hsl(2,58%,56%);
+    --success: #8bd66f;
+    --navbar-bg: hsla(214,30%,10%,0.82);
 
-    --ff-sans: 'DM Sans', system-ui, sans-serif;
-    --ff-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --ff-sans: 'Manrope', system-ui, sans-serif;
+    --ff-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
     --fs-1: 30px; --fs-2: 21px; --fs-3: 20px; --fs-4: 16px;
     --fs-5: 15px; --fs-6: 14px; --fs-7: 13px; --fs-8: 11px;
     --fw-300: 300; --fw-400: 400; --fw-500: 500; --fw-600: 600;
 
-    --shadow-1: -4px 8px 24px hsla(0,0%,0%,0.35);
-    --shadow-2: 0 16px 30px hsla(0,0%,0%,0.30);
-    --shadow-3: 0 16px 40px hsla(0,0%,0%,0.30);
-    --shadow-4: 0 25px 50px hsla(0,0%,0%,0.20);
-    --shadow-5: 0 24px 80px hsla(0,0%,0%,0.40);
+    --shadow-1: -4px 8px 24px hsla(214,60%,2%,0.40);
+    --shadow-2: 0 16px 30px hsla(214,60%,2%,0.34);
+    --shadow-3: 0 16px 40px hsla(214,60%,2%,0.34);
+    --shadow-4: 0 25px 50px hsla(214,60%,2%,0.24);
+    --shadow-5: 0 24px 80px hsla(214,60%,2%,0.46);
     --transition-1: 0.25s ease;
     --transition-2: 0.5s ease-in-out;
   }
 
-  /* Light theme: pale ash / stone + deep copper */
+  /* Light theme: cool paper + deep teal */
   :root[data-theme="light"] {
-    --bg-gradient-onyx: linear-gradient(to bottom right, hsl(30,12%,94%) 3%, hsl(30,10%,87%) 97%);
-    --bg-gradient-jet: linear-gradient(to bottom right, hsla(30,25%,40%,0.06) 0%, hsla(30,25%,40%,0) 100%), hsl(30,14%,97%);
-    --bg-gradient-yellow-1: linear-gradient(to bottom right, hsl(18,66%,50%) 0%, hsla(18,66%,50%,0) 50%);
-    --bg-gradient-yellow-2: linear-gradient(135deg, hsla(18,66%,50%,0.18) 0%, hsla(18,66%,50%,0) 60%), hsl(30,20%,99%);
-    --border-gradient-onyx: linear-gradient(to bottom right, hsl(30,8%,73%) 0%, hsla(30,8%,73%,0) 50%);
-    --text-gradient-yellow: linear-gradient(to right, hsl(20,64%,44%), hsl(14,58%,35%));
+    --bg-gradient-onyx: linear-gradient(to bottom right, hsl(210,28%,95%) 3%, hsl(210,22%,88%) 97%);
+    --bg-gradient-jet: linear-gradient(to bottom right, hsla(200,40%,40%,0.06) 0%, hsla(200,40%,40%,0) 100%), hsl(210,35%,98%);
+    --bg-gradient-yellow-1: linear-gradient(to bottom right, hsl(178,72%,28%) 0%, hsla(178,72%,28%,0) 50%);
+    --bg-gradient-yellow-2: linear-gradient(135deg, hsla(178,72%,28%,0.14) 0%, hsla(178,72%,28%,0) 60%), hsl(210,40%,99%);
+    --border-gradient-onyx: linear-gradient(to bottom right, hsl(210,18%,76%) 0%, hsla(210,18%,76%,0) 50%);
+    --text-gradient-yellow: linear-gradient(to right, hsl(178,72%,30%), hsl(200,70%,34%));
 
-    --jet: hsl(30,8%,79%);
-    --onyx: hsl(30,10%,90%);
-    --eerie-black-1: hsl(30,16%,98%);
-    --eerie-black-2: hsl(30,16%,98%);
-    --page-bg: hsl(30,7%,86%);
-    --page-glow: hsla(22,70%,62%,0.20);
+    --jet: hsl(210,18%,82%);
+    --onyx: hsl(210,26%,92%);
+    --eerie-black-1: hsl(210,40%,99%);
+    --eerie-black-2: hsl(210,40%,99%);
+    --page-bg: hsl(210,24%,91%);
+    --page-glow: hsla(190,70%,55%,0.20);
     --wm-opacity: 0.23;
     --wm-blur: 3px;
-    --white-1: hsl(30,15%,9%);
-    --white-2: hsl(30,15%,9%);
-    --accent: hsl(18,62%,38%);
-    --accent-soft: hsl(18,48%,36%);
-    --link: hsl(18,62%,34%);
-    --light-gray: hsl(30,8%,24%);
-    --light-gray-70: hsla(30,8%,24%,0.78);
-    --success: #1f7a52;
-    --navbar-bg: hsla(30,16%,98%,0.82);
-    --shadow-1: -4px 8px 24px hsla(30,20%,20%,0.12);
-    --shadow-2: 0 16px 30px hsla(30,20%,20%,0.10);
-    --shadow-3: 0 16px 40px hsla(30,20%,20%,0.10);
-    --shadow-4: 0 25px 50px hsla(30,20%,20%,0.08);
-    --shadow-5: 0 24px 80px hsla(30,20%,20%,0.16);
+    --white-1: hsl(214,38%,11%);
+    --white-2: hsl(214,38%,11%);
+    --accent: hsl(178,72%,26%);
+    --accent-soft: hsl(190,50%,28%);
+    --link: hsl(184,76%,26%);
+    --light-gray: hsl(214,20%,26%);
+    --light-gray-70: hsla(214,20%,26%,0.78);
+    --success: #2a8a3e;
+    --navbar-bg: hsla(210,40%,99%,0.82);
+    --shadow-1: -4px 8px 24px hsla(214,40%,25%,0.12);
+    --shadow-2: 0 16px 30px hsla(214,40%,25%,0.10);
+    --shadow-3: 0 16px 40px hsla(214,40%,25%,0.10);
+    --shadow-4: 0 25px 50px hsla(214,40%,25%,0.08);
+    --shadow-5: 0 24px 80px hsla(214,40%,25%,0.16);
   }
 
   /* ───────── BASE ───────── */
@@ -511,7 +511,7 @@
     .nav-brand-li { display: none; }
     .sidebar-brand {
       display: flex; justify-content: center; align-items: center;
-      position: absolute; top: 0px; left: 0; right: 0;
+      position: absolute; top: 34px; left: 0; right: 0;
       height: 270px;
       z-index: 0; pointer-events: none;
     }
@@ -574,7 +574,7 @@
 
       <div class="info-content">
         <h1 class="name" title="Apurbo Krishna Saha">Apurbo Krishna Saha</h1>
-        <p class="title">Research Analyst, BIDS</p>
+        <p class="title">Research Analyst</p>
         <ul class="social-list social-list--mini" aria-label="Links">
           <li class="social-item"><a href="https://www.linkedin.com/in/apurbo-krishna-saha" class="social-link" aria-label="LinkedIn" title="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
           <li class="social-item"><a href="https://www.theigc.org/people/apurbo-krishna-saha" class="social-link" aria-label="IGC profile" title="IGC profile"><ion-icon name="globe-outline"></ion-icon></a></li>
@@ -692,7 +692,7 @@
             <div>
               <h4 class="h4">Research Fellow (Resident PhD Fellow)</h4>
               <p>International Growth Centre (IGC), <br>
-                based at LSE in partnership with the University of Oxford.</p>
+                based at LSE in partnership with the University of Oxford</p>
             </div>
           </div>
         </div>
