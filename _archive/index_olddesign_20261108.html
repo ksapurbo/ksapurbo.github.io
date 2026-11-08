@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/png" href="images/site-logo.webp">
+<title>Apurbo Krishna Saha</title>
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&amp;family=Ubuntu:wght@300;400;500;700&amp;family=Ubuntu+Sans+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<meta name="description" content="Apurbo Krishna Saha — Research Analyst at BIDS, focusing on the labour market and development research.">
+<link rel="canonical" href="https://ksapurbo.github.io/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Apurbo Krishna Saha",
+  "url": "https://ksapurbo.github.io/",
+  "image": "https://ksapurbo.github.io/images/Site-Photo-Git11.webp",
+  "jobTitle": "Research Analyst",
+  "worksFor": [
+    {
+      "@type": "Organization",
+      "name": "Bangladesh Institute of Development Studies (BIDS)"
+    },
+    {
+      "@type": "Organization",
+      "name": "International Growth Centre (IGC)"
+    }
+  ],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Dhaka"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/apurbo-krishna-saha",
+    "https://www.theigc.org/people/apurbo-krishna-saha"
+  ]
+}
+</script>
+ 
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 17px; }
+
+  :root {
+    --bg: #06080f;
+    --surface: #0e1220;
+    --surface2: #151a2e;
+    --border: rgba(61, 107, 158, 0.07);
+    --border-hover: rgba(61, 107, 158, 0.28);
+    --text: #dde4f0;
+    --muted: #b5bac4;
+    --accent: #4d9ef5;
+    --accent2: #a78bfa;
+    --serif: 'Unica One', cursive;
+    --sans: 'Ubuntu', sans-serif;
+    --mono: 'Ubuntu Sans Mono', monospace;
+    --nav-bg: rgba(6, 8, 15, 0.88);
+    --mobile-menu-bg: rgba(6, 8, 15, 0.97);
+    --hero-card-status-bg: rgba(77,158,245,0.06);
+    --hero-card-status-border: rgba(77,158,245,0.18);
+    --skill-tag-primary-bg: rgba(77,158,245,0.05);
+    --skill-tag-primary-border: rgba(77,158,245,0.22);
+    --transition-theme: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  :root[data-theme="light"] {
+    --bg: #f9f8f8;
+    --surface: rgba(18, 67, 126, 0.04);
+    --surface2: rgba(18, 67, 126, 0.07);
+    --border: rgba(18, 67, 126, 0.10);
+    --border-hover: rgba(18, 67, 126, 0.26);
+    --text: #0d0f17;
+    --muted: #353840;
+    --accent: #12437e;
+    --accent2: #563fa0;
+    --nav-bg: rgba(249, 248, 248, 0.88);
+    --mobile-menu-bg: rgba(249, 248, 248, 0.97);
+    --hero-card-status-bg: rgba(18, 67, 126, 0.06);
+    --hero-card-status-border: rgba(18, 67, 126, 0.18);
+    --skill-tag-primary-bg: rgba(18, 67, 126, 0.05);
+    --skill-tag-primary-border: rgba(18, 67, 126, 0.22);
+  }
+
+  /* ── THEME TOGGLE ── */
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--border-hover);
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s, border-color 0.2s;
+    flex-shrink: 0;
+  }
+  .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+  .theme-toggle-icon { font-size: 13px; line-height: 1; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 4rem;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--muted);
+    transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 57px; left: 0; right: 0;
+    background: var(--mobile-menu-bg);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    z-index: 99;
+    padding: 1.5rem 2rem 2rem;
+    flex-direction: column;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  #hero {
+    border-top: none;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding: 8rem 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+  .hero-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-label::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+  .hero-name-first {
+    display: block;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.05em;
+  }
+  .hero-name-last {
+    display: block;
+    font-size: clamp(4rem, 8vw, 7rem);
+    font-weight: 400;
+    font-style: normal;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: 0.01em;
+  }
+  .hero-title {
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 54ch;
+    line-height: 1.85;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+
+  .hero-status-mobile {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0.4rem 0.75rem;
+    background: var(--hero-card-status-bg);
+    border: 1px solid var(--hero-card-status-border);
+    width: fit-content;
+  }
+  .hero-status-mobile .status-dot { flex-shrink: 0; }
+  .hero-status-mobile .status-text { font-size: 10px; }
+  
+  .btn-primary {
+    padding: 0.75rem 2rem;
+    background: var(--accent);
+    color: var(--bg);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+  .btn-secondary {
+    padding: 0.75rem 2rem;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--border-hover);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { color: var(--text); border-color: var(--text); }
+  .photo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-style: normal;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    align-self: center;
+  }
+  .photo-link .arrow {
+    color: var(--accent);
+    transition: color 0.2s;
+    font-style: normal;
+  }
+  .photo-link:hover,
+  .photo-link:active { color: var(--accent); }
+  .photo-link:hover .arrow,
+  .photo-link:active .arrow { color: var(--accent); }
+
+  /* ── SCROLL INDICATOR ── */
+  .hero-scroll {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-scroll span {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--border-hover);
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--accent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0% { left: -100%; }
+    50% { left: 0%; }
+    100% { left: 100%; }
+  }
+
+  /* ── SECTIONS COMMON ── */
+  section {
+    padding: 6rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border);
+  }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.75rem;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 3.5rem;
+    max-width: 55ch;
+  }
+  
+    /* ── HERO ABOUT CARD ── */
+  .hero-card {
+    position: relative;
+    z-index: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    animation: fadeUp 0.7s ease 0.5s both;
+  }
+  :root[data-theme="light"] .hero-card {
+    background: linear-gradient(var(--surface), var(--border));
+  }
+  .hero-card-header {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .hero-card-header::before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero-card-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-card-item:last-of-type { border-bottom: none; }
+  .hero-card-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    opacity: 1;               /* was 0.6 */
+  }
+  .hero-card-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .hero-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .hero-card-role {
+    font-family: var(--sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .hero-card-org {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+  .hero-card-status {
+    margin-top: 2rem;
+    padding: 0.85rem 1.25rem;
+    background: var(--hero-card-status-bg);
+    border: 1px solid var(--hero-card-status-border);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background: #5ccea0;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(92,206,160,0.6);
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(92,206,160,0.6); }
+    50% { opacity: 0.5; box-shadow: 0 0 3px rgba(92,206,160,0.2); }
+  }
+  @keyframes pulseLight {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(31,122,82,0.6); }
+    50% { opacity: 0.5; box-shadow: 0 0 3px rgba(31,122,82,0.2); }
+  }
+
+  :root[data-theme="light"] .status-dot,
+  :root[data-theme="light"] .role-live-dot {
+    background: #1f7a52;
+    animation-name: pulseLight;
+  }
+  :root[data-theme="light"] .status-text {
+    color: #1f7a52;
+  }
+  .status-text {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: #5ccea0;
+  }
+  
+  .role-live-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    margin-top: 3px;
+    opacity: 1;
+  }
+  .role-live-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #5ccea0;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(92,206,160,0.6);
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-grid > div:first-child {
+    position: static; /*sticky;*/
+    top: 6rem;
+  }
+  .about-photo-frame {
+    width: 90%;
+    aspect-ratio: 1/1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-photo-placeholder {
+    font-family: var(--serif);
+    font-size: 4rem;
+    color: rgba(77,158,245,0.15);
+    user-select: none;
+  }
+  .about-photo-hint {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-photo-hint img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .about-photo-corner {
+    position: absolute;
+    width: 20px; height: 20px;
+    border-color: var(--accent);
+    border-style: solid;
+    opacity: 0.4;
+  }
+  .tl { top: 12px; left: 12px; border-width: 1px 0 0 1px; }
+  .tr { top: 12px; right: 12px; border-width: 1px 1px 0 0; }
+  .bl { bottom: 12px; left: 12px; border-width: 0 0 1px 1px; }
+  .br { bottom: 12px; right: 12px; border-width: 0 1px 1px 0; }
+
+  .about-lead {
+    font-family: var(--sans);
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+  .about-body {
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+  }
+  .about-interests {
+    margin-top: 1.75rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border-hover);
+    border-left: 3px solid var(--accent);
+    background: var(--surface);
+    border-radius: 0 2px 2px 0;
+  }
+  .about-interests-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .about-interests-label::after {
+    content: '';
+    display: block;
+    flex: 1;
+    height: 1px;
+    background: var(--border-hover);
+  }
+  .interest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .interest-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    border: 1px solid var(--border-hover);
+    background: var(--surface2);
+    padding: 4px 12px;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .interest-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--surface); }
+ 
+  /* ── EDUCATION (BACKGROUND) ── */
+  .edu-timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+  .edu-timeline::before {
+    content: '';
+    position: absolute;
+    top: 8px; left: 4px;
+    width: 1px;
+    height: calc(100% - 8px);
+    background: var(--accent);
+  }
+  .edu-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 1.5rem;
+  }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-item::before {
+    content: '';
+    position: absolute;
+    left: -1.95rem;
+    top: 8px;
+    width: 7px; height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    opacity: 1;
+  }
+  .edu-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .edu-degree {
+    font-family: var(--sans);
+    font-size: 1.15rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  .edu-school {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  .edu-location {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  .edu-detail {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 60ch;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5px;
+    background: var(--border);
+  }
+  .project-item {
+    background: var(--bg);
+    padding: 2.25rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 2rem;
+    transition: background 0.25s;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+  }
+  .project-item:hover { background: var(--surface); }
+  .project-item:hover::before { transform: scaleY(1); }
+
+  .project-type {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+  .project-title {
+    font-family: var(--sans);
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 0.65rem;
+  }
+  .project-desc {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    max-width: 85ch;
+  }
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    border: 1px solid var(--border-hover);
+    padding: 3px 10px;
+  }
+  .project-arrow {
+    font-family: var(--mono);
+    font-size: 18px;
+    color: var(--border-hover);
+    transition: color 0.2s, transform 0.2s;
+    margin-top: 0.25rem;
+  }
+  .project-arrow a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s, transform 0.2s;
+  }
+  .project-item:hover .project-arrow,
+  .project-item:hover .project-arrow a { color: var(--accent); transform: translate(3px, -3px); }
+  .abstract-link {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(122,122,153,0.3);
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .abstract-link:hover,
+  .abstract-link:active { color: var(--accent); border-color: var(--accent); }
+
+  /* ── SKILLS ── */
+  .skills-clusters {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border-hover);
+    /* border-left: none; */
+  }
+  .skill-cluster {
+  padding: 2rem 2.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border-hover);
+  border-left: 3px solid transparent;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  align-items: start;
+  transition: background 0.2s, border-color 0.2s;
+  }
+  .skill-cluster:last-child { border-bottom: none; }
+  .skill-cluster:hover { 
+   background: var(--surface); 
+   border-left-color: var(--accent);
+  }
+  .skill-cluster-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 4px;
+    line-height: 1.5;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .skill-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 5px 14px;
+    transition: color 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+  .skill-tag:hover { color: var(--text); 
+                    border-color: var(--border-hover);
+                    background: var(--surface2); }
+  .skill-tag--primary {
+    color: var(--text);
+    border-color: var(--skill-tag-primary-border);
+    background: var(--skill-tag-primary-bg);
+  }
+  .skill-tag--primary:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── CONTACT ── */
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .contact-desc {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.85;
+    margin-bottom: 2.5rem;
+  }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .contact-link:last-child { border-bottom: none; }
+  .contact-link:hover { color: var(--text); }
+  .contact-link-icon {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    min-width: 5rem;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .form-group label {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .form-group input,
+  .form-group textarea {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0.85rem 1.1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--accent); }
+  .form-group textarea { min-height: 120px; }
+
+  /* ── FOOTER ── */
+  .back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    transition: color 0.2s, border-color 0.2s, opacity 0.3s;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .back-to-top:hover { color: var(--accent); border-color: var(--border-hover); }
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer p {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+  .footer-socials {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .footer-socials a {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-socials a:hover { color: var(--accent); }
+
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-inner > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-inner > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-inner > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-inner > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-inner > *:nth-child(5) { animation-delay: 0.5s; }
+  .hero-inner > *:nth-child(6) { animation-delay: 0.6s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    #hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; gap: 2.5rem; }
+    .hero-label { display: none; }
+    .hero-card { display: none; }
+    .hero-status-mobile { display: flex; }
+    .hero-name-first { font-size: clamp(2.1rem, 6vw, 2.4rem); }
+    .hero-name-last { font-size: clamp(4.4rem, 14vw, 5.2rem); }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-grid > div:first-child { position: static; }
+    .about-photo-frame { max-width: 280px; aspect-ratio: 1/1; }
+    .skill-cluster { grid-template-columns: 1fr; gap: 1rem; }
+    .project-item { grid-template-columns: 1fr; }
+    .project-arrow { display: none; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    footer { flex-direction: column; gap: 1.25rem; text-align: center; padding: 2rem 1.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    nav { padding: 0.9rem 1.25rem; }
+    #hero { padding: 5.5rem 1.25rem 2.5rem; }
+    section { padding: 3rem 1.25rem; }
+    .skill-cluster { padding: 1.5rem 1.25rem; }
+    .project-item { padding: 1.75rem 1.25rem; }
+    .btn-primary, .btn-secondary { width: 100%; text-align: center; padding: 1rem 1.5rem; }
+    .hero-cta { flex-direction: column; gap: 0.75rem; align-items: flex-start; margin-bottom: 2rem; }
+    .photo-link { margin-top: 0; }
+    footer { padding: 1.75rem 1.25rem; }
+    .footer-socials { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <img src="images/site-logo-git2-dark-4d9ef5.webp" alt="Home" height="40px" id="logo-dark" class="theme-logo" style="display:none;">
+    <img src="images/site-logo-git2-light-12437e.webp" alt="Home" height="40px" id="logo-light" class="theme-logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+      <span class="theme-toggle-icon" id="themeIcon">☀</span>
+      <span id="themeLabel">Light</span>
+    </button>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#background" onclick="closeMenu()">Background</a> 
+  <a href="#research" onclick="closeMenu()">Research</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-label"></div>
+    <div class="hero-status-mobile">
+        <span class="status-dot"></span>
+        <span class="status-text">Research Analyst, BIDS</span>
+    </div>
+    <h1 class="hero-name">
+      <span class="hero-name-first">apurbo krishna</span>
+      <span class="hero-name-last">SAHA</span>
+    </h1>
+    <p class="hero-title">Economics Graduate · Data Analyst</p>
+    <p class="hero-desc">
+      A curious Economics graduate with a passion for data, empirical and analytical research, and real-world impact.
+    </p>
+    
+    <div class="hero-cta">
+      <a href="https://drive.google.com/file/d/1vCqgN8Xx79s1KyM0nhSwj-pLa7y7Kx08/view?usp=sharing" class="btn-primary">View My CV</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
+      <a href="https://www.flickr.com/photos/202867050@N02/" class="photo-link">Also a Photographer <span class="arrow">↗</span></a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </div>
+
+  <!-- ABOUT CARD -->
+  <div class="hero-card">
+    <div class="hero-card-header">At a Glance</div>
+    
+    <div class="hero-card-item">
+        <span class="hero-card-icon role-live-icon"><span class="role-live-dot"></span></span>
+        <div class="hero-card-text">
+        <span class="hero-card-role">Research Analyst</span>
+        <span class="hero-card-org">Bangladesh Institute of Development Studies (BIDS)</span>
+        </div>
+    </div>
+   
+    <div class="hero-card-item">
+      <span class="hero-card-icon"><svg viewBox="0 0 24 24"><polyline points="17 18 23 12 17 6"/><polyline points="7 6 1 12 7 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg></span>
+      <div class="hero-card-text">
+        <span class="hero-card-role">R · Python · Stata  ·  QGIS</span>
+        <span class="hero-card-org">Econometrics & Data Analysis</span>
+      </div>
+    </div>
+
+    <div class="hero-card-item">
+      <span class="hero-card-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+      <div class="hero-card-text">
+        <span class="hero-card-role">MSS in Economics</span>
+        <span class="hero-card-org">University of Dhaka</span>
+      </div>
+    </div>
+   
+    <div class="hero-card-item">
+      <span class="hero-card-icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+      <div class="hero-card-text">
+        <span class="hero-card-role">Dhaka</span>
+        <span class="hero-card-org">Bangladesh</span>
+      </div>
+    </div>
+
+<!--
+  
+    <div class="hero-card-item">
+      <span class="hero-card-icon">🔬</span>
+      <div class="hero-card-text">
+        <span class="hero-card-role">[Your Research Interest]</span>
+        <span class="hero-card-org">e.g. Development · Labour · Macro</span>
+      </div>
+    </div>
+
+    <div class="hero-card-status">
+      <div class="status-dot"></div>
+      <span class="status-text">Open to opportunities</span>
+    </div>
+  </div> -->
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About</div>
+  <h2 class="section-title">Who I Am</h2>
+  <p><br></p>
+
+  <div class="about-grid">
+    <div>
+      <div class="about-photo-frame">
+        <!--<div class="about-photo-placeholder">AKS</div>-->
+        <div class="about-photo-hint"><img src="images/Site-Photo-Git11.webp" alt="Apurbo Krishna Saha"></div>
+        <!--<div class="about-photo-corner tl"></div>
+        <div class="about-photo-corner tr"></div>
+        <div class="about-photo-corner bl"></div>
+        <div class="about-photo-corner br"></div>-->
+      </div>
+    </div>
+    <div>
+      <p class="about-lead">
+        A Data-Driven Early-Career Researcher 
+      </p>
+      <p class="about-body">
+        The researcher in me is curious about how different policies shape our everyday lives, 
+        while the data analyst in me uses my skills in Stata, R, and Python to assess evidence, uncover patterns due to the policies. 
+        Off-screen, you’ll find me chasing light and stories through my lens.
+      </p>
+
+      <div class="about-interests">
+        <div class="about-interests-label">Research Interests</div>
+        <div class="interest-tags">
+          <div class="interest-tag">Macroeconomics & Growth</div>
+          <div class="interest-tag">Microeconometrics</div>
+          <div class="interest-tag">Development Economics</div>
+          <div class="interest-tag">Trade Policy</div>
+          <div class="interest-tag">Labour Market Analysis</div>
+          <div class="interest-tag">Applied Econometrics</div>
+          <div class="interest-tag">Economic Forecasting</div>
+          <div class="interest-tag">Application of Machine Learning (ML) in Economics</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BACKGROUND -->
+<section id="background">
+  <div class="section-label">Background</div>
+  
+  <h2 class="section-title">Work Experience</h2>
+  <p><br></p>
+  <div class="edu-timeline">
+  
+    <div class="edu-item">
+      <div class="edu-year">2026 – Present</div>
+      <div class="edu-degree">Research Analyst</div>
+      <div class="edu-school">Bangladesh Institute of Development Studies (BIDS)</div>
+      <div class="edu-location">E-17 Agargaon, Sher-e-Bangla Nagar, Dhaka-1207</div>
+    </div>
+    
+    <div class="edu-item">
+      <div class="edu-year">2025 – Present</div>
+      <div class="edu-degree">Research Fellow (Resident PhD Fellow)</div>
+      <div class="edu-school">International Growth Centre (IGC)<br>
+        [Based at London School of Economics (LSE) and in partnership with the University of Oxford]</div>
+      <div class="edu-location">Sir Arthur Lewis Building (SAL), Houghton Street London WC2A 2AE, United Kingdom</div>
+      <a href="https://www.theigc.org/people/apurbo-krishna-saha" class="btn-secondary">IGC Profile</a>
+    </div>
+  
+  </div>
+
+  <p class="section-sub"> </p>
+  
+  <h2 class="section-title">Education</h2>
+  <p><br></p>
+  <div class="edu-timeline">
+
+    <div class="edu-item">
+      <div class="edu-year">2024 – 2025</div>
+      <div class="edu-degree">Master of Social Sciences (MSS) in Economics</div>
+      <div class="edu-school">Department of Economics <br>
+        University of Dhaka</div>
+      <div class="edu-location">Dhaka-1000, Bangladesh</div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-year">2020 – 2024</div>
+      <div class="edu-degree">Bachelor of Social Sciences (BSS Hons.) in Economics</div>
+      <div class="edu-school">Department of Economics <br>
+        University of Dhaka</div>
+      <div class="edu-location">Dhaka-1000, Bangladesh</div>
+      <div class="edu-detail">
+        <bold>Achievement:</bold><br>
+        Received <em>Government Merit Scholarship for Academic Excellence in Undergraduate Studies</em> 
+        from Directorate of Secondary and Higher Education (DSHE), The Government of People's Republic of Bangladesh.
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-year">2017 – 2019</div>
+      <div class="edu-degree">Higher Secondary Certificate (HSC)</div>
+      <div class="edu-school">Birshreshtha Noor Mohammad Public College</div>
+      <div class="edu-location">Peelkhana, Dhaka-1205, Bangladesh</div>
+    </div>
+   
+  </div>
+</section>
+
+ <!-- PROJECTS -->
+<section id="research">
+  <div class="section-label">Research</div>
+  <h2 class="section-title">Published Works</h2>
+  <p><br></p>
+
+  <div class="projects-list">
+
+    <div class="project-item">
+      <div>
+        <div class="project-type">Conference Paper · 2025</div>
+        <div class="project-title">Classifying Semantically Sparse Job Titles: A Methodological Assessment from Bangladesh</div>
+        <div class="project-desc">
+          Authors: Bushra Chowdhury*, Apurbo Krishna Saha*, Md. Amzad Hossain, Atonu Rabbani<br>
+          Published in: Abstract Book of International Conference on Applied Statistics and Data Science 2025.
+          Institute of Statistical Research and Training (ISRT), University of Dhaka.<br>
+          Page: 75-76<br>
+          * Co-first Authors<br>
+          <a href="https://isrt.ac.bd/wp-content/uploads/2026/01/icas2025-book-v2.1.pdf#nameddest=subsection*.220" class="abstract-link">Abstract ↗</a>
+        </div>
+        <div class="project-tags">
+          <span class="tag">R</span>
+          <span class="tag">Natural Language Processing</span>
+          <span class="tag">Econometrics & Data Science</span>
+        </div>
+      </div>
+      <div class="project-arrow" title="View Abstract"><a href="https://isrt.ac.bd/wp-content/uploads/2026/01/icas2025-book-v2.1.pdf#nameddest=subsection*.220">↗</a></div>
+    </div>
+
+    <div class="project-item">
+      <div>
+        <div class="project-type">Student Journal Paper · 2024</div>
+        <div class="project-title">Democracy’s Reflection: Exploring the Perceptions of University 
+          Students and Shaping the Future of Institutions in a Bangladeshi Context</div>
+        <div class="project-desc">
+          Authors: Md. Ahad Al Azad Munem, Apurbo Krishna Saha<br>
+          Published in: Bangladesh Students’ Digest on Economics and Development (BSDED)<br> 
+          Volume: 5 · Issue: 1 · Page: 11-24<br>
+          <a href="http://dx.doi.org/10.2139/ssrn.5020798" class="abstract-link">Abstract ↗</a>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Stata</span>
+          <span class="tag">Primary Cross-sectional Data</span>
+          <span class="tag">Econometric Analysis</span>
+        </div>
+      </div>
+      <div class="project-arrow" title="View Abstract"><a href="http://dx.doi.org/10.2139/ssrn.5020798">↗</a></div>
+    </div>
+  </div>
+
+  <p><br></p>
+  <h2 class="section-title">Media Bites</h2>
+  <p><br></p>
+
+  <div class="projects-list">
+
+    <div class="project-item">
+      <div>
+        <div class="project-type">Article · 2026</div>
+        <div class="project-title">The job market speaks. Are we listening?</div>
+        <div class="project-desc">
+          Authors: Apurbo Krishna Saha, Bushra Chowdhury,  Atonu Rabbani<br>
+          In: The Daily Star · Star Business · Economy<br>
+          On: August 31, 2026
+         </div>
+         <div>
+          <a href="https://www.thedailystar.net/business/economy/news/the-job-market-speaks-are-we-listening-4260591" class="btn-secondary">Read Full Article</a>
+         </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+ <!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Skills</div>
+  <h2 class="section-title">Technical Skills</h2>
+  <p><br></p>
+
+  <div class="skills-clusters">
+
+    <div class="skill-cluster">
+      <div class="skill-cluster-label">Statistical Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag skill-tag--primary">R</span>
+        <span class="skill-tag skill-tag--primary">Python</span>
+        <span class="skill-tag skill-tag--primary">Stata</span>
+        <span class="skill-tag">Excel</span>
+      </div>
+    </div>
+
+    <div class="skill-cluster">
+      <div class="skill-cluster-label">Geospatial Analysis</div>
+      <div class="skill-tags">
+        <span class="skill-tag">QGIS</span>
+        <span class="skill-tag skill-tag--primary">PyQGIS</span>
+      </div>
+    </div>
+   
+    <div class="skill-cluster">
+      <div class="skill-cluster-label">Database Management</div>
+      <div class="skill-tags">
+        <span class="skill-tag">MySQL</span>
+      </div>
+    </div>
+   
+    <div class="skill-cluster">
+      <div class="skill-cluster-label">Research Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag skill-tag--primary">LaTeX</span>
+        <span class="skill-tag">MS Office Suite</span>
+        <span class="skill-tag">Google Workspace</span>
+        <span class="skill-tag">Zotero</span>
+        <span class="skill-tag">Mendeley</span>
+      </div>
+    </div>
+
+    <div class="skill-cluster">
+      <div class="skill-cluster-label">Econometric Methods</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Regression Analysis</span>
+        <span class="skill-tag">Time Series</span>
+        <span class="skill-tag">Event Analysis</span>
+        <span class="skill-tag">Panel Data</span>
+        <span class="skill-tag">Propensity Score Matching</span>
+        <span class="skill-tag">Difference-in-Differences</span>
+        <span class="skill-tag">Causal Inference</span>
+      </div>
+    </div>
+
+    <div class="skill-cluster">
+      <div class="skill-cluster-label">Research Methods</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Economic Modelling</span>
+        <span class="skill-tag">Data Cleaning</span>
+        <span class="skill-tag">Policy Analysis</span>
+        <span class="skill-tag">Literature Review</span>
+        <span class="skill-tag">Academic Writing</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">Let's Connect</h2>
+  <p><br></p>
+
+  <div class="contact-inner">
+    <div>
+      <p class="contact-desc">
+        Feel free to reach out through any of
+        the channels below. I try to respond within a day or two.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:ks.apurbobds@gmail.com" class="contact-link">
+          <span class="contact-link-icon">Email</span>
+          ks.apurbobds@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/apurbo-krishna-saha" class="contact-link">
+          <span class="contact-link-icon">LinkedIn</span>
+          apurbo-krishna-saha
+        </a>
+        <a href="https://drive.google.com/file/d/1vCqgN8Xx79s1KyM0nhSwj-pLa7y7Kx08/view?usp=sharing" class="contact-link">
+          <span class="contact-link-icon">CV</span>
+          Download PDF
+        </a>
+      </div>
+      <p class="contact-desc" style="margin-top: 2rem; margin-bottom: 0.5rem;">Photography Profiles</p>
+      <div class="contact-links">
+        <a href="https://www.flickr.com/photos/202867050@N02/" class="contact-link">
+          <span class="contact-link-icon">Flickr</span>
+          View Photostream
+        </a>
+        <a href="https://www.instagram.com/ksapurbo/" class="contact-link">
+          <span class="contact-link-icon">Instagram</span>
+          View Profile
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required/>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@organisation.com" required/>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Theme of the message"/>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Detailed message" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:fit-content;cursor:pointer;">Send Message</button>
+      <p id="form-feedback" style="font-family:var(--mono);font-size:11px;color:var(--accent);display:none;letter-spacing:0.1em;">
+        ✓ Message sent — I'll be in touch soon.
+      </p>
+      <p id="form-error" style="font-family:var(--mono);font-size:11px;color:#e07070;display:none;letter-spacing:0.1em;">
+        ✗ Something went wrong. Please email me directly.
+      </p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Apurbo Krishna Saha · All Rights Reserved</p>
+  <div class="footer-socials">
+    <a href="#" class="back-to-top" id="backToTop" title="Back to top">↑ Top</a>
+  </div>
+</footer>
+
+<script>
+// Open all external links in a new tab
+if (window.innerWidth > 900) {
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (
+      href.startsWith('http') ||
+      href.startsWith('https') ||
+      href.endsWith('.pdf') ||
+      href.endsWith('.html')
+    ) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+}
+
+// Trigger hover-style on tap for touch devices
+document.querySelectorAll('.interest-tag').forEach(tag => {
+  tag.addEventListener('touchstart', () => {
+    tag.style.borderColor = 'var(--accent)';
+    tag.style.color = 'var(--accent)';
+  });
+  tag.addEventListener('touchend', () => {
+    setTimeout(() => {
+      tag.style.borderColor = '';
+      tag.style.color = '';
+    }, 400);
+  });
+});
+
+// Back to top visibility
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) backToTop.classList.add('visible');
+  else backToTop.classList.remove('visible');
+});
+backToTop.addEventListener('click', e => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+ 
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxmLrTQ87DIF5Xo6Ql1q60maJyevB-UXTg0ta87G_h_IhmyEDc0P7UAm5BX7FxX_hluZw/exec';
+ 
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const fb = document.getElementById('form-feedback');
+  const err = document.getElementById('form-error');
+  fb.style.display = 'none';
+  err.style.display = 'none';
+ 
+  const data = {
+    name:    form.name.value,
+    email:   form.email.value,
+    subject: form.subject.value,
+    message: form.message.value
+  };
+ 
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+ 
+  try {
+    const res = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    fb.style.display = 'block';
+    form.reset();
+    setTimeout(() => { fb.style.display = 'none'; }, 6000);
+  } catch (error) {
+    err.style.display = 'block';
+    setTimeout(() => { err.style.display = 'none'; }, 6000);
+  } finally {
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+  }
+}
+// ── THEME TOGGLE ──
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const themeLabel = document.getElementById('themeLabel');
+const root = document.documentElement;
+
+function applyTheme(theme) {
+  root.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  const logoDark = document.getElementById('logo-dark');
+  const logoLight = document.getElementById('logo-light');
+  if (theme === 'light') {
+    themeIcon.textContent = '☽';
+    themeLabel.textContent = 'Night';
+    if (logoDark) logoDark.style.display = 'none';
+    if (logoLight) logoLight.style.display = 'block';
+  } else {
+    themeIcon.textContent = '☀';
+    themeLabel.textContent = 'Light';
+    if (logoDark) logoDark.style.display = 'block';
+    if (logoLight) logoLight.style.display = 'none';
+  }
+}
+
+// Load saved preference, otherwise default to dark
+const saved = localStorage.getItem('theme');
+applyTheme(saved || 'light');
+
+themeToggle.addEventListener('click', () => {
+  const current = root.getAttribute('data-theme');
+  applyTheme(current === 'light' ? 'dark' : 'light');
+});
+
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+</script>
+</body>
+</html>
