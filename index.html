@@ -2,6 +2,18 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8" />
+<meta name="color-scheme" content="dark light">
+<script>
+/* Set theme before first paint: saved manual choice, else the browser/OS preference */
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') {
+    t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+  }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="icon" type="image/png" href="images/site-logo.webp">
 <title>Apurbo Krishna Saha</title>
@@ -114,6 +126,7 @@
   a { text-decoration: none; color: var(--link); }
   li { list-style: none; }
   img, ion-icon, button, time, span { display: block; }
+  ion-icon { pointer-events: none; } /* hides ionicons' automatic tooltip; the parent's title shows instead */
   button { font: inherit; background: none; border: none; text-align: left; cursor: pointer; color: inherit; }
   input, textarea { display: block; width: 100%; background: none; font: inherit; }
   ::selection { background: var(--accent); color: var(--eerie-black-1); }
@@ -165,6 +178,8 @@
   /* serif for display text */
   .h2, .h3, .info-content .name, .pub-title { font-family: var(--ff-serif); font-weight: 500; letter-spacing: -0.01em; }
 
+  /* page headings (About Me, Resume…) stay smaller than the name on small/medium screens */
+  .h2.article-title { font-size: 22px; }
   .article-title { position: relative; padding-bottom: 7px; margin-bottom: 30px; }
   .article-title::after { content: ""; position: absolute; bottom: 0; left: 0; width: 30px; height: 3px; background: var(--text-gradient-yellow); border-radius: 3px; }
 
@@ -416,6 +431,7 @@
   @media (min-width: 580px) {
     :root { --fs-1: 40px; --fs-2: 27px; --fs-3: 26px; --fs-4: 18px; --fs-6: 15px; --fs-7: 15px; --fs-8: 12px; }
     .sidebar, article { width: 520px; margin-inline: auto; padding: 30px; }
+    .h2.article-title { font-size: 32px; }
     .article-title { padding-bottom: 15px; }
     .article-title::after { width: 40px; height: 5px; }
     .icon-box { width: 48px; height: 48px; border-radius: 12px; font-size: 18px; }
@@ -476,6 +492,7 @@
 
   @media (min-width: 1250px) {
     .sidebar, article { width: auto; }
+    .h2.article-title { font-size: var(--fs-1); }
     article { min-height: 100%; }
     main { max-width: 1320px; margin-inline: auto; padding-inline: 24px; display: flex; justify-content: center; align-items: stretch; gap: 25px; }
     .main-content { flex: 1; min-width: 0; width: auto; margin: 0; }
@@ -557,7 +574,7 @@
 
       <div class="info-content">
         <h1 class="name" title="Apurbo Krishna Saha">Apurbo Krishna Saha</h1>
-        <p class="title">Research Analyst</p>
+        <p class="title">Research Analyst, BIDS</p>
         <ul class="social-list social-list--mini" aria-label="Links">
           <li class="social-item"><a href="https://www.linkedin.com/in/apurbo-krishna-saha" class="social-link" aria-label="LinkedIn" title="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
           <li class="social-item"><a href="https://www.theigc.org/people/apurbo-krishna-saha" class="social-link" aria-label="IGC profile" title="IGC profile"><ion-icon name="globe-outline"></ion-icon></a></li>
@@ -611,11 +628,11 @@
       <div class="separator sep-social"></div>
 
       <ul class="social-list social-list--full">
-        <li class="social-item"><a href="https://www.linkedin.com/in/apurbo-krishna-saha" class="social-link" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-        <li class="social-item"><a href="https://www.theigc.org/people/apurbo-krishna-saha" class="social-link" aria-label="IGC profile"><ion-icon name="globe-outline"></ion-icon></a></li>
-        <li class="social-item"><a href="https://www.flickr.com/photos/202867050@N02/" class="social-link" aria-label="Flickr"><ion-icon name="camera-outline"></ion-icon></a></li>
-        <li class="social-item"><a href="https://www.instagram.com/ksapurbo/" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
-        <li class="social-item"><a href="https://drive.google.com/file/d/1vCqgN8Xx79s1KyM0nhSwj-pLa7y7Kx08/view?usp=sharing" class="social-link" aria-label="Curriculum vitae (PDF)"><ion-icon name="document-text-outline"></ion-icon></a></li>
+        <li class="social-item"><a href="https://www.linkedin.com/in/apurbo-krishna-saha" class="social-link" aria-label="LinkedIn" title="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+        <li class="social-item"><a href="https://www.theigc.org/people/apurbo-krishna-saha" class="social-link" aria-label="IGC profile" title="IGC profile"><ion-icon name="globe-outline"></ion-icon></a></li>
+        <li class="social-item"><a href="https://www.flickr.com/photos/202867050@N02/" class="social-link" aria-label="Flickr" title="Flickr Photostream"><ion-icon name="camera-outline"></ion-icon></a></li>
+        <li class="social-item"><a href="https://www.instagram.com/ksapurbo/" class="social-link" aria-label="Instagram" title="Instagram Profile"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        <li class="social-item"><a href="https://drive.google.com/file/d/1vCqgN8Xx79s1KyM0nhSwj-pLa7y7Kx08/view?usp=sharing" class="social-link" aria-label="Curriculum vitae (PDF)" title="CV"><ion-icon name="document-text-outline"></ion-icon></a></li>
       </ul>
     </div>
   </aside>
@@ -675,7 +692,7 @@
             <div>
               <h4 class="h4">Research Fellow (Resident PhD Fellow)</h4>
               <p>International Growth Centre (IGC), <br>
-                based at LSE in partnership with the University of Oxford</p>
+                based at LSE in partnership with the University of Oxford.</p>
             </div>
           </div>
         </div>
@@ -961,8 +978,9 @@ function fromHash() {
 window.addEventListener('hashchange', fromHash);
 fromHash();
 
-/* ── Theme toggle (dark default, remembers choice) ── */
+/* ── Theme: follows the browser/OS setting by default; a manual toggle is remembered ── */
 const root = document.documentElement;
+const mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: light)') : null;
 function applyTheme(t) {
   root.setAttribute('data-theme', t);
   document.querySelectorAll('.theme-icon').forEach(i => i.setAttribute('name', t === 'dark' ? 'sunny-outline' : 'moon-outline'));
@@ -971,14 +989,22 @@ function applyTheme(t) {
     b.title = t === 'dark' ? 'Light' : 'Night';
     b.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to night theme');
   });
-  try { localStorage.setItem('theme', t); } catch (e) {}
 }
-let savedTheme = null;
-try { savedTheme = localStorage.getItem('theme'); } catch (e) {}
-applyTheme(savedTheme || 'dark');
+function systemTheme() { return mq && mq.matches ? 'light' : 'dark'; }
+function savedTheme() {
+  try { const t = localStorage.getItem('theme'); return (t === 'light' || t === 'dark') ? t : null; } catch (e) { return null; }
+}
+applyTheme(savedTheme() || systemTheme());
 document.querySelectorAll('[data-theme-toggle]').forEach(b => b.addEventListener('click', () => {
-  applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  try { localStorage.setItem('theme', next); } catch (e) {}
 }));
+// Live-follow the system setting until the visitor makes a manual choice
+if (mq) {
+  const onSys = () => { if (!savedTheme()) applyTheme(systemTheme()); };
+  if (mq.addEventListener) mq.addEventListener('change', onSys); else if (mq.addListener) mq.addListener(onSys);
+}
 
 /* ── Contact form (Google Apps Script) ── */
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxmLrTQ87DIF5Xo6Ql1q60maJyevB-UXTg0ta87G_h_IhmyEDc0P7UAm5BX7FxX_hluZw/exec';
